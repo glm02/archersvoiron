@@ -9,7 +9,7 @@
 const { kv } = require('@vercel/kv');
 
 const SUBSCRIBERS_KEY = 'newsletter_subscribers';
-const FROM = 'Les Archers <noreply@lesarchersvoiron.fr>';
+const FROM = 'Brasserie des Archers <noreply@lesarchersvoiron.fr>';
 const IMG_BASE = 'https://www.lesarchersvoiron.fr';
 const HERO_IMG = `${IMG_BASE}/photo/bar-interieur.webp`;
 const LOYALTY_CODE = 'ARCHERS10';
@@ -26,13 +26,13 @@ function welcomeEmailHtml() {
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="x-apple-disable-message-reformatting">
-<title>Bienvenue à Les Archers</title></head>
+<title>Bienvenue à la Brasserie des Archers</title></head>
 <body style="margin:0;padding:0;background:#EDE6D6;-webkit-text-size-adjust:100%;">
 <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:#EDE6D6;font-size:1px;">Votre code -10 % vous attend pour votre prochain séjour.</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#EDE6D6;">
   <tr><td align="center" style="padding:28px 12px;">
     <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;background:#FDFBF7;border-radius:18px;overflow:hidden;border:1px solid #E7DECC;">
-      <tr><td style="padding:0;line-height:0;font-size:0;"><img src="${HERO_IMG}" width="600" alt="Les Archers" style="display:block;width:100%;max-width:600px;height:200px;object-fit:cover;border:0;"></td></tr>
+      <tr><td style="padding:0;line-height:0;font-size:0;"><img src="${HERO_IMG}" width="600" alt="Brasserie des Archers" style="display:block;width:100%;max-width:600px;height:200px;object-fit:cover;border:0;"></td></tr>
       <tr><td style="background:#2E3D2F;padding:30px 40px;">
         <p style="margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C4A57B;">Bienvenue dans notre cercle</p>
         <h1 style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:25px;font-weight:bold;line-height:1.25;color:#ffffff;">Merci de votre inscription</h1>
@@ -40,7 +40,7 @@ function welcomeEmailHtml() {
       </td></tr>
       <tr><td style="height:4px;line-height:4px;font-size:0;background:#C4704D;">&nbsp;</td></tr>
       <tr><td style="padding:36px 40px 8px;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.75;color:#3E352B;">
-        <p style="margin:0 0 18px;">Vous recevrez les plus belles saisons de Les Archers, nos disponibilités et nos offres réservées à nos abonnés.</p>
+        <p style="margin:0 0 18px;">Vous recevrez les plus belles saisons de la Brasserie des Archers, nos disponibilités et nos offres réservées à nos abonnés.</p>
         <p style="margin:0 0 8px;">Pour vous remercier, voici <strong>10 % de réduction</strong> sur votre prochain séjour :</p>
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="padding:14px 0 26px;">
           <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border:2px dashed #C4704D;border-radius:12px;background:#FDF6EF;"><tr><td style="padding:18px 40px;text-align:center;">
@@ -55,14 +55,14 @@ function welcomeEmailHtml() {
       </td></tr>
       <tr><td style="padding:8px 40px 0;"><div style="border-top:1px solid #ECE3D2;font-size:0;line-height:0;">&nbsp;</div></td></tr>
       <tr><td style="padding:22px 40px 34px;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.8;color:#9A917F;text-align:center;">
-        <span style="font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#6B5744;font-weight:bold;">Les Archers</span><br>
+        <span style="font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#6B5744;font-weight:bold;">Brasserie des Archers</span><br>
         1157 Place du Général Leclerc · 38500 Voiron · Alpes-de-Haute-Provence<br>
         <a href="tel:+33476050042" style="color:#9A917F;text-decoration:none;">+33 6 06 79 23 93</a> &nbsp;·&nbsp;
         <a href="https://www.lesarchersvoiron.fr" style="color:#C4704D;text-decoration:none;font-weight:bold;">lesarchersvoiron.fr</a>
       </td></tr>
     </table>
     <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;"><tr>
-      <td style="padding:14px 0;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#B0A793;">© ${year} Les Archers — Voiron, Provence</td>
+      <td style="padding:14px 0;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#B0A793;">© ${year} Brasserie des Archers — Voiron, Provence</td>
     </tr></table>
   </td></tr>
 </table>
@@ -129,7 +129,7 @@ module.exports = async (req, res) => {
         await resend.emails.send({
           from: FROM,
           to: [cleanEmail],
-          subject: 'Bienvenue 🌿 + votre code -10 % — Les Archers',
+          subject: 'Bienvenue 🌿 + votre code -10 % — Brasserie des Archers',
           html: welcomeEmailHtml(),
         });
       } catch (err) {

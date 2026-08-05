@@ -6,7 +6,7 @@
 // Lecture/écriture Supabase via la clé service (serveur uniquement).
 // Paiement TOTAL. Anti-double-réservation garanti par la contrainte d'exclusion en base.
 
-const SUPABASE_URL = process.env.SUPABASE_URL || ''; // pas encore de projet Supabase pour Les Archers
+const SUPABASE_URL = process.env.SUPABASE_URL || ''; // pas encore de projet Supabase pour la Brasserie des Archers
 const SUPABASE_ANON = process.env.SUPABASE_ANON_KEY || '';
 const SERVICE = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 const STRIPE_SECRET = process.env.STRIPE_SECRET_KEY || '';
@@ -77,7 +77,7 @@ async function quote(logementId, arrivee, depart, nbPers, code) {
 
 // ---- Retour Stripe (anciennement booking-success) ----
 const OWNER_EMAIL = (process.env.CONTACT_EMAIL || 'lesarchersvoiron@gmail.com').trim();
-const FROM = 'Les Archers <noreply@lesarchersvoiron.fr>';
+const FROM = 'Brasserie des Archers <noreply@lesarchersvoiron.fr>';
 const LOG_PHOTO = {
   magnan: '/photo/magnan/1.webp',
   giono: '/photo/chambre%20giono/photo%20a%20mettre%20en%20avant.webp',
@@ -105,9 +105,9 @@ function clientEmailHtml(rows) {
     <div style="height:4px;background:#C4704D;"></div>
     <div style="background:#FDFBF7;padding:30px 34px;border:1px solid #E7DECC;border-top:none;border-radius:0 0 14px 14px;line-height:1.7;">
       <table style="width:100%;border-collapse:collapse;font-size:14px;">${rowsTable(rows)}<tr><td colspan="2" style="padding:12px 0;font-weight:bold;">Total payé</td><td style="padding:12px 0;text-align:right;font-weight:bold;font-size:16px;">${sumRows(rows)} €</td></tr></table>
-      <p style="margin:22px 0 0;">Nous avons hâte de vous accueillir à Les Archers. À très bientôt !</p>
+      <p style="margin:22px 0 0;">Nous avons hâte de vous accueillir à la Brasserie des Archers. À très bientôt !</p>
       <p style="margin:18px 0 0;font-size:18px;color:#2E3D2F;">L'équipe des Archers</p>
-      <p style="font-size:12px;color:#C8C3BB;margin:26px 0 0;text-align:center;">Les Archers · Voiron 38500 · lesarchersvoiron.fr</p>
+      <p style="font-size:12px;color:#C8C3BB;margin:26px 0 0;text-align:center;">Brasserie des Archers · Voiron 38500 · lesarchersvoiron.fr</p>
     </div></div>`;
 }
 function ownerEmailHtml(rows) {
@@ -142,7 +142,7 @@ async function handleSuccess(req, res) {
       try {
         const { Resend } = require('resend');
         const resend = new Resend(process.env.RESEND_API_KEY);
-        await resend.emails.send({ from: FROM, to: [rows[0].email], subject: 'Votre réservation est confirmée — Les Archers', html: clientEmailHtml(rows) });
+        await resend.emails.send({ from: FROM, to: [rows[0].email], subject: 'Votre réservation est confirmée — Brasserie des Archers', html: clientEmailHtml(rows) });
         await resend.emails.send({ from: FROM, to: [OWNER_EMAIL], reply_to: rows[0].email, subject: `Nouvelle réservation payée — ${rows.length > 1 ? rows.length + ' logements' : nomOf(rows[0])}`, html: ownerEmailHtml(rows) });
       } catch (e) { }
     }

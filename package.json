@@ -1,7 +1,7 @@
 {
   "name": "les-archers-voiron",
   "version": "1.0.0",
-  "description": "Site vitrine + panel admin pour Les Archers (café, brasserie, bar à Voiron)",
+  "description": "Site vitrine + panel admin pour la Brasserie des Archers (café, brasserie, bar à Voiron)",
   "private": true,
   "scripts": {
     "start": "vercel dev",

@@ -8,7 +8,7 @@
 
 const { kv } = require('@vercel/kv');
 
-const SUPABASE_URL = process.env.SUPABASE_URL || ''; // pas encore de projet Supabase pour Les Archers
+const SUPABASE_URL = process.env.SUPABASE_URL || ''; // pas encore de projet Supabase pour la Brasserie des Archers
 const SUPABASE_ANON = process.env.SUPABASE_ANON_KEY || '';
 const RESERVATIONS_KEY = 'reservations';
 const SERVICE = process.env.SUPABASE_SERVICE_ROLE_KEY || '';

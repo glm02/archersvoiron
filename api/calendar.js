@@ -6,7 +6,7 @@
 //
 // Service role Supabase (serveur). Plus tard : import iCal Eviivo/Booking/Airbnb.
 
-const SUPABASE_URL = process.env.SUPABASE_URL || ''; // pas encore de projet Supabase pour Les Archers
+const SUPABASE_URL = process.env.SUPABASE_URL || ''; // pas encore de projet Supabase pour la Brasserie des Archers
 const SERVICE = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
 function sb(path, opts) {

@@ -12,8 +12,8 @@ const { kv } = require('@vercel/kv');
 const SETTINGS_KEY = 'admin_settings';
 
 const DEFAULT_SETTINGS = {
-  title: 'Les Archers',
-  heroTitle: 'Les Archers',
+  title: 'Brasserie des Archers',
+  heroTitle: 'Brasserie des Archers',
   heroSub: "Un lieu où tradition et modernité se rencontrent, place du Général Leclerc, pour une expérience café-brasserie unique au cœur de Voiron depuis 1905.",
   email: process.env.CONTACT_EMAIL || '',
   receiveEmail: process.env.CONTACT_EMAIL || '',

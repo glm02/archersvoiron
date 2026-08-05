@@ -628,7 +628,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         if (photoUrls.length === 0) {
-            for (let i = 0; i < 6; i++) photoUrls.push('/photo/facade.webp');
+            for (let i = 0; i < 6; i++) photoUrls.push('/photo/facade-1.webp');
         }
 
         const controller = new CarouselController(`room${roomNum}`, photoUrls.length);
@@ -773,7 +773,7 @@ function buildGcalUrl(r) {
         + '&text=' + encodeURIComponent(text)
         + '&dates=' + toYMD(r.dateStart) + '/' + toYMD(r.dateEnd)
         + '&details=' + encodeURIComponent(details)
-        + '&location=' + encodeURIComponent('Les Archers, Voiron, 38500');
+        + '&location=' + encodeURIComponent('Brasserie des Archers, Voiron, 38500');
     return 'https://calendar.google.com/calendar/render?' + params;
 }
 
@@ -979,15 +979,15 @@ let _allClients = [];
 
 const CAMP_TEMPLATES = {
     promo: {
-        subject: 'Une offre pour vous à Les Archers',
+        subject: 'Une offre pour vous à la Brasserie des Archers',
         message: 'Bonjour,\n\nLes beaux jours arrivent et notre terrasse n\'attend plus que vous : formules du jour, cocktails signature et tapas maison place du Général Leclerc.\n\nPour votre prochaine visite, profitez de 10 % de réduction avec le code ARCHERS10.\n\nÀ très bientôt,\nL\'équipe des Archers'
     },
     revenir: {
         subject: 'Cela faisait longtemps — revenez nous voir',
-        message: 'Bonjour,\n\nLes saisons passent et notre terrasse est toujours aussi agréable. Si l\'envie d\'un café, d\'une formule ou d\'un cocktail vous tente, nous serions ravis de vous accueillir à nouveau à Les Archers.\n\nÀ très bientôt,\nL\'équipe des Archers'
+        message: 'Bonjour,\n\nLes saisons passent et notre terrasse est toujours aussi agréable. Si l\'envie d\'un café, d\'une formule ou d\'un cocktail vous tente, nous serions ravis de vous accueillir à nouveau à la Brasserie des Archers.\n\nÀ très bientôt,\nL\'équipe des Archers'
     },
     news: {
-        subject: 'Des nouvelles de Les Archers',
+        subject: 'Des nouvelles de la Brasserie des Archers',
         message: 'Bonjour,\n\nVoici quelques nouvelles des Archers…\n\n(écrivez ici votre actualité)\n\nÀ très bientôt,\nL\'équipe des Archers'
     }
 };
@@ -1382,7 +1382,7 @@ window._deleteRes = async function (id) {
 };
 
 // ===== Espace client — Supabase Auth =====
-// Pas encore de projet Supabase pour Les Archers (à provisionner séparément) :
+// Pas encore de projet Supabase pour la Brasserie des Archers (à provisionner séparément) :
 // on laisse volontairement ces clés vides pour ne pas dépendre d'un autre projet.
 const SUPA_URL = '';
 const SUPA_KEY = '';

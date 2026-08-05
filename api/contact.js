@@ -71,7 +71,7 @@ module.exports = async (req, res) => {
 
       const subjectLine = dateStart
         ? `🍽️ Nouvelle demande de ${name} — ${dateFormatted}`
-        : `📩 Nouveau message de ${name} — Les Archers`;
+        : `📩 Nouveau message de ${name} — Brasserie des Archers`;
 
       // CONTACT_EMAIL env var a toujours la priorité — KV n'est qu'un fallback
       let adminEmailConfig = process.env.CONTACT_EMAIL;
@@ -96,7 +96,7 @@ module.exports = async (req, res) => {
 
       // ── Email au propriétaire ──
       const { data, error: ownerError } = await resend.emails.send({
-        from: 'Les Archers <noreply@lesarchersvoiron.fr>',
+        from: 'Brasserie des Archers <noreply@lesarchersvoiron.fr>',
         to: [adminEmailConfig],
         reply_to: email,
         subject: subjectLine,
@@ -104,7 +104,7 @@ module.exports = async (req, res) => {
           <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; color: #2E3D2F;">
             <div style="background: #C4704D; padding: 32px; border-radius: 8px 8px 0 0;">
               <h1 style="color: #fff; margin: 0; font-size: 24px;">Nouvelle demande de réservation</h1>
-              <p style="color: rgba(255,255,255,0.8); margin: 8px 0 0;">Les Archers</p>
+              <p style="color: rgba(255,255,255,0.8); margin: 8px 0 0;">Brasserie des Archers</p>
             </div>
             <div style="background: #FDFBF7; padding: 32px; border: 1px solid #EDE7D9; border-top: none; border-radius: 0 0 8px 8px;">
               <table style="width:100%; border-collapse: collapse;">
@@ -133,9 +133,9 @@ module.exports = async (req, res) => {
 
       // ── Email de confirmation au visiteur ──
       const { error: visitorError } = await resend.emails.send({
-        from: 'Les Archers <noreply@lesarchersvoiron.fr>',
+        from: 'Brasserie des Archers <noreply@lesarchersvoiron.fr>',
         to: [email],
-        subject: `Votre demande a bien été reçue — Les Archers`,
+        subject: `Votre demande a bien été reçue — Brasserie des Archers`,
         html: `
           <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; color: #2E3D2F;">
             <div style="background: #2E3D2F; padding: 32px; border-radius: 8px 8px 0 0;">
@@ -144,7 +144,7 @@ module.exports = async (req, res) => {
             </div>
             <div style="background: #FDFBF7; padding: 32px; border: 1px solid #EDE7D9; border-top: none; border-radius: 0 0 8px 8px;">
               <p style="margin: 0 0 24px; line-height: 1.6;">
-                Merci pour votre intérêt pour <strong>Les Archers</strong>.
+                Merci pour votre intérêt pour <strong>Brasserie des Archers</strong>.
                 ${dateStart
             ? ` Nous reviendrons vers vous dans les plus brefs délais pour confirmer votre réservation le <strong>${dateFormatted}</strong>${dateEnd ? ` à <strong>${timeFormatted}</strong>` : ''}.`
             : ' Notre équipe vous contactera très prochainement.'
@@ -193,7 +193,7 @@ module.exports = async (req, res) => {
                 Si vous avez des questions, répondez directement à cet email ou contactez-nous à <strong>${adminEmailConfig}</strong>.
               </div>
 
-              <p style="font-size: 12px; color: #C8C3BB; margin: 0; text-align: center;">Les Archers · 04 76 05 00 42 · lesarchersvoiron.fr</p>
+              <p style="font-size: 12px; color: #C8C3BB; margin: 0; text-align: center;">Brasserie des Archers · 04 76 05 00 42 · lesarchersvoiron.fr</p>
             </div>
           </div>
         `

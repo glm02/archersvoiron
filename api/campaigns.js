@@ -14,7 +14,7 @@ const crypto = require('crypto');
 
 const RESERVATIONS_KEY = 'reservations';
 const DAY = 86400000;
-const FROM = 'Les Archers <noreply@lesarchersvoiron.fr>';
+const FROM = 'Brasserie des Archers <noreply@lesarchersvoiron.fr>';
 // Domaine "www" : il sert les fichiers en direct. Le non-www redirige (307),
 // or les clients mail ne suivent PAS les redirections d'images -> www obligatoire.
 const IMG_BASE = 'https://www.lesarchersvoiron.fr';
@@ -23,7 +23,7 @@ const REVIEW_URL = process.env.REVIEW_URL || 'https://www.google.com/maps?q=Les+
 // Image d'en-tête commune à tous les emails (bar, servie en direct sur www)
 const HERO_IMG = `${IMG_BASE}/photo/bar-interieur.webp`;
 const IMG_TABLE = `${IMG_BASE}/photo/plat.webp`;
-const IMG_EXTERIEUR = `${IMG_BASE}/photo/facade.webp`;
+const IMG_EXTERIEUR = `${IMG_BASE}/photo/facade-1.webp`;
 const IMG_FENETRE = `${IMG_BASE}/photo/cocktail.webp`;
 const IMG_SALON = `${IMG_BASE}/photo/bar-interieur.webp`;
 const CAMPAIGN_IMAGES = { salon: IMG_SALON, fenetre: IMG_FENETRE, table: IMG_TABLE, exterieur: IMG_EXTERIEUR, hero: HERO_IMG };
@@ -77,7 +77,7 @@ async function buildAudience() {
 function broadcastEmailHtml(message, unsubUrl, imageKey) {
   const safe = String(message || '').replace(/</g, '&lt;').replace(/\n/g, '<br>');
   const img = CAMPAIGN_IMAGES[imageKey] || IMG_SALON;
-  return shell(img, 'Les Archers', '', '<div>' + safe + '</div>', unsubUrl);
+  return shell(img, 'Brasserie des Archers', '', '<div>' + safe + '</div>', unsubUrl);
 }
 
 const LISTS_KEY = 'mailing_lists';
@@ -160,9 +160,9 @@ function shell(imgUrl, title, intro, bodyHtml, unsubUrl) {
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#EDE6D6;">
   <tr><td align="center" style="padding:28px 12px;">
     <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;background:#FDFBF7;border-radius:18px;overflow:hidden;border:1px solid #E7DECC;">
-      ${imgUrl ? `<tr><td style="padding:0;line-height:0;font-size:0;"><img src="${imgUrl}" width="600" alt="Les Archers" style="display:block;width:100%;max-width:600px;height:200px;object-fit:cover;border:0;outline:none;text-decoration:none;"></td></tr>` : ''}
+      ${imgUrl ? `<tr><td style="padding:0;line-height:0;font-size:0;"><img src="${imgUrl}" width="600" alt="Brasserie des Archers" style="display:block;width:100%;max-width:600px;height:200px;object-fit:cover;border:0;outline:none;text-decoration:none;"></td></tr>` : ''}
       <tr><td style="background:#2E3D2F;padding:30px 40px;">
-        <p style="margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C4A57B;">Les Archers</p>
+        <p style="margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C4A57B;">Brasserie des Archers</p>
         <h1 style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:25px;font-weight:bold;line-height:1.25;color:#ffffff;">${title}</h1>
         ${intro ? `<p style="margin:12px 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.55;color:#D7C7AE;">${intro}</p>` : ''}
       </td></tr>
@@ -172,7 +172,7 @@ function shell(imgUrl, title, intro, bodyHtml, unsubUrl) {
       </td></tr>
       <tr><td style="padding:8px 40px 0;"><div style="border-top:1px solid #ECE3D2;font-size:0;line-height:0;">&nbsp;</div></td></tr>
       <tr><td style="padding:22px 40px 34px;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.8;color:#9A917F;text-align:center;">
-        <span style="font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#6B5744;font-weight:bold;">Les Archers</span><br>
+        <span style="font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#6B5744;font-weight:bold;">Brasserie des Archers</span><br>
         1157 Place du Général Leclerc · 38500 Voiron · Alpes-de-Haute-Provence<br>
         <a href="tel:+33476050042" style="color:#9A917F;text-decoration:none;">+33 6 06 79 23 93</a> &nbsp;·&nbsp;
         <a href="https://www.lesarchersvoiron.fr" style="color:#C4704D;text-decoration:none;font-weight:bold;">lesarchersvoiron.fr</a>
@@ -180,7 +180,7 @@ function shell(imgUrl, title, intro, bodyHtml, unsubUrl) {
       </td></tr>
     </table>
     <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;"><tr>
-      <td style="padding:14px 0;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#B0A793;">© ${year} Les Archers — Voiron, Provence</td>
+      <td style="padding:14px 0;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#B0A793;">© ${year} Brasserie des Archers — Voiron, Provence</td>
     </tr></table>
   </td></tr>
 </table>
@@ -197,7 +197,7 @@ function reviewEmailHtml(name) {
        <a href="${REVIEW_URL}" style="display:inline-block; background:#C4704D; color:#fff; text-decoration:none; padding:14px 28px; border-radius:8px; font-weight:bold;">Laisser un avis sur Google</a>
      </p>
      ${loyaltyBlock()}
-     <p>Au plaisir de vous revoir bientôt à Les Archers.</p>
+     <p>Au plaisir de vous revoir bientôt à la Brasserie des Archers.</p>
      <p style="margin-top:20px;">L'équipe des Archers</p>`,
     null
   );
@@ -207,7 +207,7 @@ function reengageEmailHtml(name, unsubUrl) {
   return shell(
     IMG_EXTERIEUR,
     `Cela faisait longtemps${name ? ', ' + name : ''}`,
-    'Les Archers vous attend, place du Général Leclerc.',
+    'La Brasserie des Archers vous attend, place du Général Leclerc.',
     `<p>Les saisons passent et notre terrasse est toujours aussi agréable. Si l'envie d'un café, d'une formule du jour ou d'un cocktail signature vous tente, nous serions ravis de vous accueillir à nouveau.</p>
      <p style="text-align:center; margin:28px 0;">
        <a href="${SITE}/#specialites" style="display:inline-block; background:#2E3D2F; color:#fff; text-decoration:none; padding:14px 28px; border-radius:8px; font-weight:bold;">Voir nos spécialités</a>
@@ -223,7 +223,7 @@ function promoEmailHtml(name, unsubUrl) {
     IMG_FENETRE,
     `Une offre pour vous${name ? ', ' + name : ''}`,
     'Profitez de nos meilleures conditions du moment.',
-    `<p>En ce moment à Les Archers, nous vous réservons une attention particulière pour votre prochaine visite : formules du jour, cocktails signature et tapas maison, en terrasse ou au comptoir.</p>
+    `<p>En ce moment à la Brasserie des Archers, nous vous réservons une attention particulière pour votre prochaine visite : formules du jour, cocktails signature et tapas maison, en terrasse ou au comptoir.</p>
      <p style="text-align:center; margin:28px 0;">
        <a href="${SITE}/#contact" style="display:inline-block; background:#C4704D; color:#fff; text-decoration:none; padding:14px 28px; border-radius:8px; font-weight:bold;">Profiter de l'offre</a>
      </p>
@@ -240,7 +240,7 @@ function replyEmailHtml(name, message) {
   return shell(
     HERO_IMG,
     `Bonjour ${name || ''}`,
-    'Les Archers vous répond.',
+    'La Brasserie des Archers vous répond.',
     `<p>${safe}</p>
      <p style="margin-top:24px;">Bien à vous,<br>L'équipe des Archers</p>
      <div style="margin-top:24px; padding:14px 18px; background:#FDF6EF; border-left:3px solid #C4704D; border-radius:0 6px 6px 0; font-size:13px; color:#6B5744; line-height:1.6;">
@@ -300,7 +300,7 @@ module.exports = async (req, res) => {
       subs.forEach(x => { if ((x.email || '').toLowerCase() === email) { x.unsubscribed = true; subChanged = true; } });
       if (subChanged) await saveSubscribers(subs);
     } catch { }
-    return res.status(200).send('<html><body style="font-family:sans-serif;text-align:center;padding:48px;color:#2E3D2F;"><h2>Désinscription confirmée ✓</h2><p>Vous ne recevrez plus d\'emails de Les Archers.</p></body></html>');
+    return res.status(200).send('<html><body style="font-family:sans-serif;text-align:center;padding:48px;color:#2E3D2F;"><h2>Désinscription confirmée ✓</h2><p>Vous ne recevrez plus d\'emails de la Brasserie des Archers.</p></body></html>');
   }
 
   // ── POST — Envoi manuel d'un email depuis l'admin (avis ou relance) ──
@@ -413,15 +413,15 @@ module.exports = async (req, res) => {
         await resend.emails.send({ from: FROM, to: [email], subject: 'Merci pour votre visite — votre avis compte', html: reviewEmailHtml(r.name) });
         r.reviewSentAt = new Date().toISOString();
       } else if (type === 'promo') {
-        await resend.emails.send({ from: FROM, to: [email], subject: 'Une offre pour vous à Les Archers', html: promoEmailHtml(r.name, unsubUrl) });
+        await resend.emails.send({ from: FROM, to: [email], subject: 'Une offre pour vous à la Brasserie des Archers', html: promoEmailHtml(r.name, unsubUrl) });
         r.lastPromoAt = new Date().toISOString();
       } else if (type === 'reply') {
         const msg = (req.body.message || '').toString().trim();
         if (!msg) return res.status(400).json({ error: 'Message vide' });
-        await resend.emails.send({ from: FROM, to: [email], subject: 'Réponse de Les Archers', html: replyEmailHtml(r.name, msg) });
+        await resend.emails.send({ from: FROM, to: [email], subject: 'Réponse de la Brasserie des Archers', html: replyEmailHtml(r.name, msg) });
         r.lastReplyAt = new Date().toISOString();
       } else {
-        await resend.emails.send({ from: FROM, to: [email], subject: 'Revenez vous ressourcer à Les Archers', html: reengageEmailHtml(r.name, unsubUrl) });
+        await resend.emails.send({ from: FROM, to: [email], subject: 'Revenez vous ressourcer à la Brasserie des Archers', html: reengageEmailHtml(r.name, unsubUrl) });
         r.lastReengagedAt = new Date().toISOString();
       }
       await saveReservations(reservations);
@@ -478,7 +478,7 @@ module.exports = async (req, res) => {
         if (!dryRun && resend) {
           try {
             const unsubUrl = `${SITE}/api/campaigns?unsubscribe=${unsubToken(email)}&email=${encodeURIComponent(email)}`;
-            await resend.emails.send({ from: FROM, to: [email], subject: 'Revenez vous ressourcer à Les Archers', html: reengageEmailHtml(r.name, unsubUrl) });
+            await resend.emails.send({ from: FROM, to: [email], subject: 'Revenez vous ressourcer à la Brasserie des Archers', html: reengageEmailHtml(r.name, unsubUrl) });
             r.lastReengagedAt = new Date().toISOString();
             report.reengageSent++;
           } catch (e) { report.errors++; }
