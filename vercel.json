@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "api/*.js": {
+      "memory": 256,
+      "maxDuration": 30
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/campaigns",
+      "schedule": "0 9 * * *"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# Robots.txt for Les Archers
+# Permet l'indexation complète par les moteurs de recherche
+
+User-agent: *
+Allow: /
+Allow: /photo/
+Disallow: /api/
+Disallow: /.env
+Disallow: /node_modules/
+Disallow: /#admin
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://lesarchersvoiron.fr/sitemap.xml
