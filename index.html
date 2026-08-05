@@ -17,7 +17,7 @@
     <meta property="og:description"
         content="Café-brasserie historique depuis 1905 au cœur de Voiron. Formules du jour, cocktails signature, afterwork et grande terrasse place du Général Leclerc.">
     <meta property="og:site_name" content="Brasserie des Archers">
-    <meta property="og:image" content="https://lesarchersvoiron.fr/photo/facade-2.webp">
+    <meta property="og:image" content="https://lesarchersvoiron.fr/photo/facade-1.webp">
     <meta property="og:image:width" content="1600">
     <meta property="og:image:height" content="2000">
     <meta property="og:image:alt" content="Brasserie des Archers — café brasserie à Voiron depuis 1905">
@@ -27,7 +27,7 @@
     <meta name="twitter:title" content="Brasserie des Archers — Voiron">
     <meta name="twitter:description"
         content="Café-brasserie historique depuis 1905 au cœur de Voiron. Formules du jour, cocktails signature et afterwork.">
-    <meta name="twitter:image" content="https://lesarchersvoiron.fr/photo/facade-2.webp">
+    <meta name="twitter:image" content="https://lesarchersvoiron.fr/photo/facade-1.webp">
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -58,7 +58,7 @@
         "longitude": 5.5838
       },
       "image": [
-        "https://lesarchersvoiron.fr/photo/facade-2.webp",
+        "https://lesarchersvoiron.fr/photo/facade-1.webp",
         "https://lesarchersvoiron.fr/photo/bar-interieur.webp",
         "https://lesarchersvoiron.fr/photo/plat-4.webp"
       ],
@@ -271,7 +271,7 @@
 
         /* Parallax basique pour le hero */
         .bg-hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/photo/facade-2.webp');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/photo/facade-1.webp');
             background-size: cover;
             background-position: center;
             background-attachment: scroll;
@@ -917,7 +917,15 @@
 
 
         <!-- Social Proof / Reviews Section -->
-        <section class="py-20 bg-sable-200 reviews-glow">
+        <section id="avis" class="py-20 bg-sable-200 reviews-glow">
+            <svg width="0" height="0" class="absolute">
+                <defs>
+                    <linearGradient id="starGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#F6D686" />
+                        <stop offset="100%" stop-color="#C9932E" />
+                    </linearGradient>
+                </defs>
+            </svg>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 reveal">
                     <p class="text-terre-400 font-semibold tracking-wider uppercase text-sm mb-2">Preuve sociale</p>
@@ -927,7 +935,7 @@
                     <!-- Badge récapitulatif Avis Google -->
                     <a href="https://www.google.com/maps?q=Les+Archers+9+Place+du+G%C3%A9n%C3%A9ral+Leclerc+Voiron" target="_blank"
                         rel="noopener"
-                        class="google-pill inline-flex items-center gap-3 bg-white rounded-full pl-4 pr-5 py-2.5 border border-sable-300 hover:border-terre-400 transition-colors mt-2">
+                        class="google-pill inline-flex items-center gap-3 bg-white rounded-full pl-4 pr-5 py-2.5 border border-sable-300 hover:border-terre-400 transition-colors mt-2 shadow-sm">
                         <svg viewBox="0 0 48 48" class="w-6 h-6 flex-shrink-0" aria-hidden="true">
                             <path fill="#4285F4"
                                 d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z" />
@@ -940,12 +948,12 @@
                         </svg>
                         <span class="text-left leading-tight">
                             <span class="block font-bold text-terre-800 text-sm">Avis Google</span>
-                            <span class="gstars inline-flex items-center gap-0.5 text-[#FBBC05]">
-                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star"
-                                    class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star"
-                                    class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star"
-                                    class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star"
-                                    class="w-3.5 h-3.5 fill-current"></i>
+                            <span class="inline-flex items-center gap-0.5">
+                                <svg viewBox="0 0 24 24" class="w-3.5 h-3.5"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" class="w-3.5 h-3.5"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" class="w-3.5 h-3.5"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" class="w-3.5 h-3.5"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" class="w-3.5 h-3.5"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
                             </span>
                         </span>
                         <span
@@ -965,125 +973,165 @@
                     </div>
                 </div>
 
-                <!-- Reviews Grid (Horizontal Scroll on Mobile, Grid on Desktop) -->
-                <div
-                    class="flex overflow-x-auto w-full pb-8 hide-scrollbar md:grid md:grid-cols-3 gap-6 snap-x snap-mandatory reveal delay-200">
-                    <!-- Review 1 -->
-                    <div
-                        class="review-card bg-sable-100 p-6 rounded-2xl shadow-sm w-[85vw] md:w-auto flex-shrink-0 snap-start border border-sable-300/50">
-                        <div class="gstars flex items-center gap-2 mb-4 text-terre-400">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p id="review-1-text" class="text-terre-800 italic mb-6">"Très bon moment passé dans ce
-                            restaurant ! Nous avons pleinement profité de la terrasse ensoleillée, ce qui a rendu
-                            l'expérience encore plus agréable. Le service était irréprochable et les serveurs
-                            particulièrement gentils et attentionnés."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 rounded-full bg-vert-800 text-white flex items-center justify-center font-bold">
-                                E</div>
-                            <div>
-                                <p id="review-1-author" class="font-bold text-sm text-terre-800">Elisa M.</p>
-                                <p class="text-xs text-terre-600">Google</p>
+                <!-- Reviews Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 reveal delay-200">
+                    <!-- Michel -->
+                    <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background:#C22A68">M</div>
+                                <div>
+                                    <p class="font-bold text-sm text-vert-800">Michel</p>
+                                    <p class="text-xs text-terre-500">24/02/2026</p>
+                                </div>
                             </div>
+                            <svg viewBox="0 0 48 48" class="w-5 h-5 shrink-0" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
                         </div>
+                        <div class="flex gap-0.5 mb-3">
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                        </div>
+                        <p class="review-text text-sm text-terre-700 leading-relaxed line-clamp-4">Très bon accueil, grande terrasse, service sympathique, bonne cuisine. Seul petit bémol, si l'on ne mange pas (bar), à midi, il faut libérer la table pour les personnes qui mangent même s'il y a encore plein de tables libres...</p>
+                        <button type="button" class="review-toggle text-xs font-bold text-terre-400 hover:text-terre-600 mt-2" onclick="window._toggleReview(this)">Lire la suite</button>
                     </div>
-                    <!-- Review 2 -->
-                    <div
-                        class="review-card bg-sable-100 p-6 rounded-2xl shadow-sm w-[85vw] md:w-auto flex-shrink-0 snap-start border border-sable-300/50">
-                        <div class="gstars flex items-center gap-2 mb-4 text-terre-400">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p id="review-2-text" class="text-terre-800 italic mb-6">"Très bel établissement ! On est
-                            super bien accueillis par l'équipe ! Le cadre est superbe et on y mange très bien. Une
-                            très belle adresse que je recommande vivement."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="relative flex-shrink-0 w-10 h-10 rounded-full bg-terre-600 text-white flex items-center justify-center font-bold">
-                                J<span class="g-avatar-badge absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center"><svg viewBox="0 0 48 48" class="w-3 h-3" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg></span></div>
-                            <div>
-                                <p id="review-2-author" class="font-bold text-sm text-terre-800">Julien S.</p>
-                                <p class="text-xs text-terre-600">Google</p>
+                    <!-- MCEIHTFAN -->
+                    <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background:#99204F">M</div>
+                                <div>
+                                    <p class="font-bold text-sm text-vert-800">MCEIHTFAN</p>
+                                    <p class="text-xs text-terre-500">06/03/2026</p>
+                                </div>
                             </div>
+                            <svg viewBox="0 0 48 48" class="w-5 h-5 shrink-0" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
                         </div>
+                        <div class="flex gap-0.5 mb-3">
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                        </div>
+                        <p class="review-text text-sm text-terre-700 leading-relaxed line-clamp-4">C'est ici que l'on boit les meilleurs chocolats de Voiron ! Un peu bruyant dans la salle, mais le personnel est toujours au top et super agréable malgré tout.</p>
+                        <button type="button" class="review-toggle text-xs font-bold text-terre-400 hover:text-terre-600 mt-2" onclick="window._toggleReview(this)">Lire la suite</button>
                     </div>
-                    <!-- Review 3 -->
-                    <div
-                        class="review-card bg-sable-100 p-6 rounded-2xl shadow-sm w-[85vw] md:w-auto flex-shrink-0 snap-start border border-sable-300/50">
-                        <div class="gstars flex items-center gap-2 mb-4 text-terre-400">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p id="review-3-text" class="text-terre-800 italic mb-6">"Une vraie pépite ! Une note au
-                            dessus de 20/20. À découvrir absolument ! Trop trop bon. Je recommande vivement. Mes
-                            respects au chef, chapeau bas !"</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="relative flex-shrink-0 w-10 h-10 rounded-full bg-vert-600 text-white flex items-center justify-center font-bold">
-                                P<span class="g-avatar-badge absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center"><svg viewBox="0 0 48 48" class="w-3 h-3" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg></span></div>
-                            <div>
-                                <p id="review-3-author" class="font-bold text-sm text-terre-800">PoPs</p>
-                                <p class="text-xs text-terre-600">Google</p>
+                    <!-- olivier lemaire -->
+                    <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background:#6B3F4F">O</div>
+                                <div>
+                                    <p class="font-bold text-sm text-vert-800">olivier lemaire</p>
+                                    <p class="text-xs text-terre-500">06/03/2026</p>
+                                </div>
                             </div>
+                            <svg viewBox="0 0 48 48" class="w-5 h-5 shrink-0" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
                         </div>
+                        <div class="flex gap-0.5 mb-3">
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                        </div>
+                        <p class="review-text text-sm text-terre-700 leading-relaxed line-clamp-4">Un bon endroit pour se poser et discuter. Chocolat et cocktails.</p>
+                        <button type="button" class="review-toggle text-xs font-bold text-terre-400 hover:text-terre-600 mt-2 hidden" onclick="window._toggleReview(this)">Lire la suite</button>
                     </div>
-                    <!-- Review 4 (hidden on mobile, visible on lg) -->
-                    <div
-                        class="review-card hidden lg:block bg-sable-100 p-6 rounded-2xl shadow-sm w-[85vw] md:w-auto flex-shrink-0 snap-start border border-sable-300/50">
-                        <div class="gstars flex items-center gap-2 mb-4 text-terre-400">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-terre-800 italic mb-6">"Nous avons passé un moment agréable en revenant dans
-                            ce lieu après de nombreuses années sans être venus. Le lieu est toujours aussi magnifique
-                            et agréable. Un lieu à découvrir à Voiron. Les tapas et planches de charcuterie sont
-                            top. À refaire, à bientôt !"</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="relative flex-shrink-0 w-10 h-10 rounded-full bg-terre-400 text-white flex items-center justify-center font-bold">
-                                L<span class="g-avatar-badge absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center"><svg viewBox="0 0 48 48" class="w-3 h-3" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg></span></div>
-                            <div>
-                                <p class="font-bold text-sm text-terre-800">Laurent L.</p>
-                                <p class="text-xs text-terre-600">Google</p>
+                    <!-- PoPs -->
+                    <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background:#E14584">P</div>
+                                <div>
+                                    <p class="font-bold text-sm text-vert-800">PoPs</p>
+                                    <p class="text-xs text-terre-500">07/03/2026</p>
+                                </div>
                             </div>
+                            <svg viewBox="0 0 48 48" class="w-5 h-5 shrink-0" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
                         </div>
+                        <div class="flex gap-0.5 mb-3">
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                        </div>
+                        <p class="review-text text-sm text-terre-700 leading-relaxed line-clamp-4">Une vraie pépite ! Une note au dessus de 20/20. À découvrir absolument ! Trop trop bon. Je recommande vivement. Mes respects au chef, chapeau bas !</p>
+                        <button type="button" class="review-toggle text-xs font-bold text-terre-400 hover:text-terre-600 mt-2" onclick="window._toggleReview(this)">Lire la suite</button>
                     </div>
-                    <!-- Review 5 (hidden on mobile, visible on lg) -->
-                    <div
-                        class="review-card hidden lg:block bg-sable-100 p-6 rounded-2xl shadow-sm w-[85vw] md:w-auto flex-shrink-0 snap-start border border-sable-300/50 lg:col-span-2">
-                        <div class="gstars flex items-center gap-2 mb-4 text-terre-400">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                                class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-terre-800 italic mb-6">"C'est ici que l'on boit les meilleurs chocolats de
-                            Voiron. Le personnel est toujours au top et super agréable. Très bon accueil, grande
-                            terrasse, service sympathique, bonne cuisine — une adresse incontournable place du
-                            Général Leclerc."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="relative flex-shrink-0 w-10 h-10 rounded-full bg-vert-800 text-white flex items-center justify-center font-bold">
-                                M<span class="g-avatar-badge absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center"><svg viewBox="0 0 48 48" class="w-3 h-3" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg></span></div>
-                            <div>
-                                <p class="font-bold text-sm text-terre-800">Michel</p>
-                                <p class="text-xs text-terre-600">Google</p>
+                    <!-- laurent laroche -->
+                    <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background:#EC6F9B">L</div>
+                                <div>
+                                    <p class="font-bold text-sm text-vert-800">laurent laroche</p>
+                                    <p class="text-xs text-terre-500">15/03/2026</p>
+                                </div>
                             </div>
+                            <svg viewBox="0 0 48 48" class="w-5 h-5 shrink-0" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
                         </div>
+                        <div class="flex gap-0.5 mb-3">
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                        </div>
+                        <p class="review-text text-sm text-terre-700 leading-relaxed line-clamp-4">Nous avons passé un moment agréable en revenant dans ce lieu après de nombreuses années sans être venus. Le lieu est toujours aussi magnifique et agréable. Un lieu à découvrir à Voiron. Les tapas et planches de charcuterie sont top. À refaire, à bientôt !</p>
+                        <button type="button" class="review-toggle text-xs font-bold text-terre-400 hover:text-terre-600 mt-2" onclick="window._toggleReview(this)">Lire la suite</button>
+                    </div>
+                    <!-- Julien Saunier -->
+                    <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background:#5C2338">J</div>
+                                <div>
+                                    <p class="font-bold text-sm text-vert-800">Julien Saunier</p>
+                                    <p class="text-xs text-terre-500">19/03/2026</p>
+                                </div>
+                            </div>
+                            <svg viewBox="0 0 48 48" class="w-5 h-5 shrink-0" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+                        </div>
+                        <div class="flex gap-0.5 mb-3">
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                        </div>
+                        <p class="review-text text-sm text-terre-700 leading-relaxed line-clamp-4">Très bel établissement ! On est super bien accueillis par l'équipe ! Le cadre est superbe et on y mange très bien. Une très belle adresse que je recommande vivement.</p>
+                        <button type="button" class="review-toggle text-xs font-bold text-terre-400 hover:text-terre-600 mt-2" onclick="window._toggleReview(this)">Lire la suite</button>
+                    </div>
+                    <!-- Elisa MON -->
+                    <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background:#A9503B">E</div>
+                                <div>
+                                    <p class="font-bold text-sm text-vert-800">Elisa MON</p>
+                                    <p class="text-xs text-terre-500">22/03/2026</p>
+                                </div>
+                            </div>
+                            <svg viewBox="0 0 48 48" class="w-5 h-5 shrink-0" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+                        </div>
+                        <div class="flex gap-0.5 mb-3">
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 drop-shadow-sm"><path fill="url(#starGrad)" d="M12 2l2.9 6.9 7.1.6-5.5 4.7 1.8 7.1L12 17l-6.3 3.3 1.8-7.1L2 8.5l7.1-.6L12 2z"/></svg>
+                        </div>
+                        <p class="review-text text-sm text-terre-700 leading-relaxed line-clamp-4">Très bon moment passé dans ce restaurant ! Nous avons pleinement profité de la terrasse ensoleillée, ce qui a rendu l'expérience encore plus agréable. Le service était irréprochable et les serveurs particulièrement gentils et attentionnés.</p>
+                        <button type="button" class="review-toggle text-xs font-bold text-terre-400 hover:text-terre-600 mt-2" onclick="window._toggleReview(this)">Lire la suite</button>
                     </div>
                 </div>
 
-                <div class="text-center mt-8 reveal">
+                <div class="text-center mt-10 reveal">
                     <a id="reviews-booking-btn" href="https://www.google.com/maps?q=Les+Archers+9+Place+du+G%C3%A9n%C3%A9ral+Leclerc+Voiron"
                         target="_blank" rel="noopener"
                         class="inline-flex items-center gap-2 text-terre-600 hover:text-terre-800 font-medium transition-colors">
@@ -1100,7 +1148,7 @@
                     <div class="relative reveal">
                         <div
                             class="aspect-[4/5] rounded-3xl overflow-hidden border-8 border-sable-200 shadow-xl max-w-md mx-auto lg:mx-0">
-                            <img loading="lazy" src="/photo/facade-1.webp"
+                            <img loading="lazy" src="/photo/facade-2.webp"
                                 alt="Terrasse et devanture de la Brasserie des Archers, café brasserie place du Général Leclerc à Voiron"
                                 class="w-full h-full object-cover">
                         </div>
@@ -1214,15 +1262,11 @@
         </section>
 
         <!-- Location Section -->
-        <section id="histoire" class="py-24 bg-vert-800 text-sable-100 relative overflow-hidden">
-            <!-- Decorative subtle pattern/overlay -->
-            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
-            </div>
-
+        <section id="histoire" class="py-24 bg-sable-200 text-terre-800 relative overflow-hidden">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <p class="text-sable-300 font-semibold tracking-wider uppercase text-sm mb-2">Un héritage de 1905</p>
-                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-8">L'histoire des Archers</h2>
-                <p class="text-sable-200 leading-relaxed text-lg max-w-3xl mx-auto">
+                <p class="text-terre-500 font-semibold tracking-wider uppercase text-sm mb-2">Un héritage de 1905</p>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-vert-800 mb-8">L'histoire des Archers</h2>
+                <p class="text-terre-700 leading-relaxed text-lg max-w-3xl mx-auto">
                     Depuis 1905, la Brasserie des Archers se dresse fièrement à Voiron, unissant le charme intemporel de la
                     tradition à l'élan audacieux de la modernité. Ce lieu emblématique a traversé les décennies,
                     préservant l'âme de la brasserie tout en s'ouvrant aux tendances contemporaines. Les murs
@@ -1233,20 +1277,20 @@
                 </p>
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-14">
-                    <div class="bg-vert-900/50 backdrop-blur-sm p-6 rounded-2xl border border-vert-600/50">
+                    <div class="bg-white p-6 rounded-2xl border border-terre-300 shadow-sm">
                         <i data-lucide="landmark" class="w-6 h-6 text-terre-400 mb-3 mx-auto"></i>
-                        <p class="font-serif text-2xl font-bold text-white">1905</p>
-                        <p class="text-sable-200 text-sm mt-1">Ouverture des Archers</p>
+                        <p class="font-serif text-2xl font-bold text-vert-800">1905</p>
+                        <p class="text-terre-600 text-sm mt-1">Ouverture des Archers</p>
                     </div>
-                    <div class="bg-vert-900/50 backdrop-blur-sm p-6 rounded-2xl border border-vert-600/50">
+                    <div class="bg-white p-6 rounded-2xl border border-terre-300 shadow-sm">
                         <i data-lucide="map-pin" class="w-6 h-6 text-terre-400 mb-3 mx-auto"></i>
-                        <p class="font-serif text-2xl font-bold text-white">Voiron</p>
-                        <p class="text-sable-200 text-sm mt-1">Place du Général Leclerc</p>
+                        <p class="font-serif text-2xl font-bold text-vert-800">Voiron</p>
+                        <p class="text-terre-600 text-sm mt-1">Place du Général Leclerc</p>
                     </div>
-                    <div class="bg-vert-900/50 backdrop-blur-sm p-6 rounded-2xl border border-vert-600/50">
+                    <div class="bg-white p-6 rounded-2xl border border-terre-300 shadow-sm">
                         <i data-lucide="sun" class="w-6 h-6 text-terre-400 mb-3 mx-auto"></i>
-                        <p class="font-serif text-2xl font-bold text-white">Terrasse</p>
-                        <p class="text-sable-200 text-sm mt-1">Grande terrasse ensoleillée</p>
+                        <p class="font-serif text-2xl font-bold text-vert-800">Terrasse</p>
+                        <p class="text-terre-600 text-sm mt-1">Grande terrasse ensoleillée</p>
                     </div>
                 </div>
             </div>
@@ -1383,7 +1427,7 @@
                                 contacter</a>
                         </div>
                         <div class="grid grid-cols-2 gap-4">
-                            <img src="/photo/facade-1.webp" class="rounded-2xl shadow-md h-48 w-full object-cover mt-8"
+                            <img src="/photo/facade-2.webp" class="rounded-2xl shadow-md h-48 w-full object-cover mt-8"
                                 alt="Terrasse de la Brasserie des Archers place du Général Leclerc à Voiron">
                             <img src="/photo/interieur-2.webp"
                                 class="rounded-2xl shadow-md h-48 w-full object-cover" alt="Salle de la Brasserie des Archers à Voiron">
@@ -1410,29 +1454,29 @@
                     <div class="cv-carousel" id="cv-carousel">
                         <div class="cv-counter" id="cv-counter">01 / 12</div>
                         <div class="cv-slides">
-                            <img class="cv-slide active" src="/photo/facade-1.webp"
+                            <img class="cv-slide active cursor-zoom-in" onclick="event.stopPropagation(); openLightbox(0)" src="/photo/facade-1.webp"
                                 alt="Terrasse et façade de la Brasserie des Archers, place du Général Leclerc à Voiron" loading="eager">
-                            <img class="cv-slide" src="/photo/facade-3.webp"
+                            <img class="cv-slide cursor-zoom-in" onclick="event.stopPropagation(); openLightbox(1)" src="/photo/facade-3.webp"
                                 alt="Vue de la place du Général Leclerc depuis la terrasse de la Brasserie des Archers" loading="lazy">
-                            <img class="cv-slide" src="/photo/bar-interieur.webp"
+                            <img class="cv-slide cursor-zoom-in" onclick="event.stopPropagation(); openLightbox(2)" src="/photo/bar-interieur.webp"
                                 alt="Comptoir et salle historique de la Brasserie des Archers à Voiron" loading="lazy">
-                            <img class="cv-slide" src="/photo/interieur-2.webp"
+                            <img class="cv-slide cursor-zoom-in" onclick="event.stopPropagation(); openLightbox(3)" src="/photo/interieur-2.webp"
                                 alt="Salle et plafond d'époque de la Brasserie des Archers à Voiron" loading="lazy">
-                            <img class="cv-slide" src="/photo/decor-1.webp"
+                            <img class="cv-slide cursor-zoom-in" onclick="event.stopPropagation(); openLightbox(4)" src="/photo/decor-1.webp"
                                 alt="Décor floral et Chartreuse à la Brasserie des Archers" loading="lazy">
-                            <img class="cv-slide" src="/photo/decor-2.webp"
+                            <img class="cv-slide cursor-zoom-in" onclick="event.stopPropagation(); openLightbox(5)" src="/photo/decor-2.webp"
                                 alt="Ambiance et décor intérieur de la Brasserie des Archers" loading="lazy">
-                            <img class="cv-slide" src="/photo/cocktail.webp"
+                            <img class="cv-slide cursor-zoom-in" onclick="event.stopPropagation(); openLightbox(6)" src="/photo/cocktail.webp"
                                 alt="Cocktail signature servi en salle à la Brasserie des Archers à Voiron" loading="lazy">
-                            <img class="cv-slide" src="/photo/cocktail-2.webp"
+                            <img class="cv-slide cursor-zoom-in" onclick="event.stopPropagation(); openLightbox(7)" src="/photo/cocktail-2.webp"
                                 alt="Cocktails signature de la Brasserie des Archers à Voiron" loading="lazy">
-                            <img class="cv-slide" src="/photo/plat-3.webp"
+                            <img class="cv-slide cursor-zoom-in" onclick="event.stopPropagation(); openLightbox(8)" src="/photo/plat-3.webp"
                                 alt="Plat mijoté préparé par la cuisine de la Brasserie des Archers" loading="lazy">
-                            <img class="cv-slide" src="/photo/plat-5.webp"
+                            <img class="cv-slide cursor-zoom-in" onclick="event.stopPropagation(); openLightbox(9)" src="/photo/plat-5.webp"
                                 alt="Saumon grillé préparé par la cuisine de la Brasserie des Archers" loading="lazy">
-                            <img class="cv-slide" src="/photo/dessert-2.webp"
+                            <img class="cv-slide cursor-zoom-in" onclick="event.stopPropagation(); openLightbox(10)" src="/photo/dessert-2.webp"
                                 alt="Dessert gourmand de la Brasserie des Archers" loading="lazy">
-                            <img class="cv-slide" src="/photo/terrasse-2.webp"
+                            <img class="cv-slide cursor-zoom-in" onclick="event.stopPropagation(); openLightbox(11)" src="/photo/terrasse-2.webp"
                                 alt="Déjeuner en terrasse à la Brasserie des Archers à Voiron" loading="lazy">
                         </div>
                         <div class="cv-caption" id="cv-caption">
@@ -1550,9 +1594,14 @@
         </div>
 
         <script>
-            // Initial empty array for gallery photos (will be populated dynamically)
-            let galleryPhotos = [];
+            // Photos du carrousel = source de vérité pour la lightbox (même ordre, même index)
+            let galleryPhotos = Array.from(document.querySelectorAll('#cv-carousel .cv-slide')).map(img => ({ src: img.src, alt: img.alt }));
             let currentPhoto = 0;
+            window._toggleReview = function (btn) {
+                const p = btn.previousElementSibling;
+                const collapsed = p.classList.toggle('line-clamp-4');
+                btn.textContent = collapsed ? 'Lire la suite' : 'Réduire';
+            };
             function openLightbox(index) {
                 currentPhoto = index;
                 const lb = document.getElementById('lightbox');
@@ -1632,20 +1681,17 @@
 
                     <!-- Contact Info Panel -->
                     <div
-                        class="lg:w-2/5 bg-vert-800 text-white p-10 lg:p-14 flex flex-col justify-between relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] z-0">
-                        </div>
+                        class="lg:w-2/5 bg-terre-50 text-terre-800 p-10 lg:p-14 flex flex-col justify-between relative overflow-hidden border-r border-terre-200">
                         <div class="relative z-10 reveal">
-                            <h2 class="text-3xl font-serif font-bold mb-4">Contactez-nous</h2>
-                            <p class="text-sable-200 mb-12">Pour une réponse rapide, appelez-nous ou envoyez un SMS au
-                                <span class="font-bold text-white">04 76 05 00 42</span>.</p>
+                            <h2 class="text-3xl font-serif font-bold mb-4 text-vert-800">Contactez-nous</h2>
+                            <p class="text-terre-600 mb-12">Pour une réponse rapide, appelez-nous ou envoyez un SMS au
+                                <span class="font-bold text-vert-800">04 76 05 00 42</span>.</p>
 
-                            <div class="space-y-6 text-sable-100">
+                            <div class="space-y-6 text-terre-700">
                                 <div class="flex items-start gap-4">
                                     <i data-lucide="mail" class="w-6 h-6 text-terre-400 mt-1"></i>
                                     <div>
-                                        <p class="text-sm text-sable-300">Email</p>
+                                        <p class="text-sm text-terre-500">Email</p>
                                         <a id="contact-email-link" href="mailto:lesarchersvoiron@gmail.com"
                                             class="font-medium hover:text-terre-400 transition-colors">lesarchersvoiron@gmail.com</a>
                                     </div>
@@ -1653,7 +1699,7 @@
                                 <div class="flex items-start gap-4">
                                     <i data-lucide="phone" class="w-6 h-6 text-terre-400 mt-1"></i>
                                     <div>
-                                        <p class="text-sm text-sable-300">Téléphone</p>
+                                        <p class="text-sm text-terre-500">Téléphone</p>
                                         <a id="contact-phone-link" href="tel:+33476050042"
                                             class="font-medium hover:text-terre-400 transition-colors">04 76 05 00 42</a>
                                     </div>
@@ -1661,14 +1707,14 @@
                                 <div class="flex items-start gap-4">
                                     <i data-lucide="map-pin" class="w-6 h-6 text-terre-400 mt-1"></i>
                                     <div>
-                                        <p class="text-sm text-sable-300">Adresse</p>
+                                        <p class="text-sm text-terre-500">Adresse</p>
                                         <p class="font-medium">9 Place du Général Leclerc, 38500 Voiron<br>France</p>
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-4">
                                     <i data-lucide="clock" class="w-6 h-6 text-terre-400 mt-1"></i>
                                     <div>
-                                        <p class="text-sm text-sable-300">Horaires</p>
+                                        <p class="text-sm text-terre-500">Horaires</p>
                                         <p class="font-medium">Lundi – Samedi : 8h00 – 22h00</p>
                                         <p class="font-medium">Dimanche : fermé</p>
                                     </div>
@@ -1740,6 +1786,12 @@
 
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                                 <div>
+                                    <label for="guests" class="block text-sm font-medium text-terre-800 mb-2">Nombre de
+                                        personnes</label>
+                                    <input type="number" id="guests" name="guests" min="1" max="30"
+                                        class="w-full px-4 py-3 rounded-lg border border-sable-300 bg-white focus:border-terre-400 focus:ring-2 focus:ring-terre-400/20 outline-none transition-all">
+                                </div>
+                                <div>
                                     <label for="checkin" class="block text-sm font-medium text-terre-800 mb-2">Date
                                         souhaitée</label>
                                     <input type="date" id="checkin" name="checkin"
@@ -1749,12 +1801,6 @@
                                     <label for="checkout"
                                         class="block text-sm font-medium text-terre-800 mb-2">Heure souhaitée</label>
                                     <input type="time" id="checkout" name="checkout"
-                                        class="w-full px-4 py-3 rounded-lg border border-sable-300 bg-white focus:border-terre-400 focus:ring-2 focus:ring-terre-400/20 outline-none transition-all">
-                                </div>
-                                <div>
-                                    <label for="guests" class="block text-sm font-medium text-terre-800 mb-2">Nombre de
-                                        personnes</label>
-                                    <input type="number" id="guests" name="guests" min="1" max="30"
                                         class="w-full px-4 py-3 rounded-lg border border-sable-300 bg-white focus:border-terre-400 focus:ring-2 focus:ring-terre-400/20 outline-none transition-all">
                                 </div>
                             </div>
@@ -1768,8 +1814,8 @@
 
                             <label class="flex items-start gap-2 text-xs text-terre-600 cursor-pointer">
                                 <input type="checkbox" name="marketing" value="on" class="mt-0.5 accent-vert-800">
-                                <span>J'accepte de recevoir occasionnellement des actualités et offres de La Campagne
-                                    Archers par email (facultatif, désinscription à tout moment).</span>
+                                <span>J'accepte de recevoir occasionnellement des actualités et offres de la Brasserie
+                                    des Archers par email (facultatif, désinscription à tout moment).</span>
                             </label>
 
                             <button type="submit"
@@ -2179,7 +2225,7 @@
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4 border-b border-sable-300 pb-4">
                         <h2 class="text-2xl md:text-4xl font-serif font-bold text-vert-800">Demandes de réservation</h2>
                         <div class="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
-                            <input id="search-res" type="search" placeholder="Rechercher (nom, email, logement…)" class="px-4 py-2 border border-sable-300 rounded-lg bg-white text-sm font-medium text-terre-800 focus:outline-none focus:border-terre-400 shadow-sm w-full sm:w-56">
+                            <input id="search-res" type="search" placeholder="Rechercher (nom, email, motif…)" class="px-4 py-2 border border-sable-300 rounded-lg bg-white text-sm font-medium text-terre-800 focus:outline-none focus:border-terre-400 shadow-sm w-full sm:w-56">
                             <select id="filter-status" class="px-4 py-2 border border-sable-300 rounded-lg bg-white text-sm font-medium text-terre-800 focus:outline-none focus:border-terre-400 cursor-pointer shadow-sm">
                                 <option value="">Toutes les demandes</option>
                                 <option value="new">Nouvelles</option>
@@ -2199,9 +2245,10 @@
                             <thead class="bg-sable-200 text-terre-800 font-bold uppercase tracking-wider text-xs border-b border-sable-300">
                                 <tr>
                                     <th class="px-6 py-4">Client</th>
-                                    <th class="px-6 py-4">Dates</th>
-                                    <th class="px-6 py-4">Logement</th>
-                                    <th class="px-6 py-4">Statut</th>
+                                    <th class="px-6 py-4">Personnes</th>
+                                    <th class="px-6 py-4">Date / Heure</th>
+                                    <th class="px-6 py-4">Motif</th>
+                                    <th class="px-6 py-4">Statut de la réservation</th>
                                     <th class="px-6 py-4 text-right">Actions</th>
                                 </tr>
                             </thead>

@@ -653,7 +653,7 @@ let _allReservations = [];
 async function loadReservations() {
     const tbody = document.getElementById('reservations-tbody');
     if (!tbody) return;
-    tbody.innerHTML = '<tr><td colspan="5" class="px-6 py-10 text-center text-terre-600 font-medium">Chargement...</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="6" class="px-6 py-10 text-center text-terre-600 font-medium">Chargement...</td></tr>';
     try {
         const resp = await fetch('/api/reservations', { headers: adminHeaders() });
         const data = await resp.json();
@@ -663,7 +663,7 @@ async function loadReservations() {
         if (kpi) kpi.textContent = data.newCount || 0;
         renderReservations();
     } catch (err) {
-        tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-10 text-center text-red-500 font-medium">Erreur: ${err.message}</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="6" class="px-6 py-10 text-center text-red-500 font-medium">Erreur: ${err.message}</td></tr>`;
     }
 }
 
@@ -700,19 +700,16 @@ function renderReservations() {
 
     tbody.innerHTML = list.map(r => {
         const fmtDate = (d) => d ? new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' }) : null;
-        const nights = r.dateStart && r.dateEnd
-            ? Math.ceil((new Date(r.dateEnd) - new Date(r.dateStart)) / 86400000)
-            : null;
-        const dateRange = r.dateStart && r.dateEnd
-            ? `${fmtDate(r.dateStart)} → ${fmtDate(r.dateEnd)}`
-            : '<span class="text-terre-400 italic text-xs">Dates non précisées</span>';
+        const dateTime = r.dateStart
+            ? `${fmtDate(r.dateStart)}${r.dateEnd ? ` à ${r.dateEnd}` : ''}`
+            : '<span class="text-terre-400 italic text-xs">Non précisée</span>';
         const createdAt = r.createdAt
             ? new Date(r.createdAt).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })
             : '';
         const b = badgeClass[r.status] || badgeClass.read;
         const icon = lblIcon[r.status] || 'eye';
         const text = lblText[r.status] || r.status;
-        const gcal = (r.dateStart && r.dateEnd) ? buildGcalUrl(r) : null;
+        const gcal = r.dateStart ? buildGcalUrl(r) : null;
         return `<tr class="hover:bg-sable-50 transition-colors border-t border-sable-200">
                     <td class="px-5 py-4">
                         <div class="flex items-start gap-3">
@@ -727,11 +724,10 @@ function renderReservations() {
                         ${r.message ? `<div class="mt-2 ml-12 text-terre-600 text-xs italic bg-sable-100 rounded-lg p-2 border border-sable-200 max-w-xs">&ldquo;${r.message.replace(/</g, '&lt;').substring(0, 200)}${r.message.length > 200 ? '&hellip;' : ''}&rdquo;</div>` : ''}
                     </td>
                     <td class="px-5 py-4">
-                        <div class="text-sm text-terre-800 font-medium">${dateRange}</div>
-                        <div class="flex gap-2 mt-1 flex-wrap">
-                            ${nights ? `<span class="text-xs font-bold bg-vert-800 text-sable-100 px-2 py-0.5 rounded">${nights} nuit${nights > 1 ? 's' : ''}</span>` : ''}
-                            ${r.guests ? `<span class="text-xs font-bold bg-sable-200 text-terre-700 px-2 py-0.5 rounded border border-sable-300">${r.guests} pers.</span>` : ''}
-                        </div>
+                        ${r.guests ? `<span class="text-sm font-bold text-terre-800">${r.guests} pers.</span>` : '<span class="text-terre-400 italic text-xs">Non précisé</span>'}
+                    </td>
+                    <td class="px-5 py-4">
+                        <span class="text-sm text-terre-800 font-medium">${dateTime}</span>
                     </td>
                     <td class="px-5 py-4">
                         <span class="text-sm font-bold text-terre-800">${r.typeLogement || '<span class="text-terre-400 italic font-normal">Non précisé</span>'}</span>
@@ -758,10 +754,16 @@ function renderReservations() {
 
 // Génère un lien "Ajouter à Google Agenda" (événement journée, sans API)
 function buildGcalUrl(r) {
-    const toYMD = (d) => {
-        const dt = new Date(d);
-        return dt.getFullYear() + String(dt.getMonth() + 1).padStart(2, '0') + String(dt.getDate()).padStart(2, '0');
-    };
+    const pad = (n) => String(n).padStart(2, '0');
+    const start = new Date(r.dateStart);
+    let h = 19, m = 0;
+    if (r.dateEnd && /^\d{1,2}:\d{2}$/.test(r.dateEnd)) {
+        const parts = r.dateEnd.split(':').map(Number);
+        h = parts[0]; m = parts[1];
+    }
+    start.setHours(h, m, 0, 0);
+    const end = new Date(start.getTime() + 2 * 60 * 60 * 1000); // créneau de 2h par défaut
+    const toGcal = (d) => d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + 'T' + pad(d.getHours()) + pad(d.getMinutes()) + '00';
     const text = `Réservation ${r.typeLogement || ''} — ${r.name || ''}`.trim();
     const details = [
         r.email ? `Email : ${r.email}` : '',
@@ -771,7 +773,7 @@ function buildGcalUrl(r) {
     ].filter(Boolean).join('\n');
     const params = 'action=TEMPLATE'
         + '&text=' + encodeURIComponent(text)
-        + '&dates=' + toYMD(r.dateStart) + '/' + toYMD(r.dateEnd)
+        + '&dates=' + toGcal(start) + '/' + toGcal(end)
         + '&details=' + encodeURIComponent(details)
         + '&location=' + encodeURIComponent('Brasserie des Archers, Voiron, 38500');
     return 'https://calendar.google.com/calendar/render?' + params;
@@ -806,7 +808,7 @@ function renderResStats() {
             <div class="h-2 bg-sable-200 rounded-full overflow-hidden"><div class="h-full ${color} rounded-full" style="width:${Math.round(val / max * 100)}%"></div></div>
         </div>`;
 
-    // Répartition par logement
+    // Répartition par motif
     const byLog = {};
     all.forEach(r => { const k = r.typeLogement || 'Non précisé'; byLog[k] = (byLog[k] || 0) + 1; });
     const logEntries = Object.entries(byLog).sort((a, b) => b[1] - a[1]);
@@ -833,7 +835,7 @@ function renderResStats() {
 
     bd.innerHTML = `
         <div class="bg-white rounded-xl border border-sable-300 shadow-sm p-4">
-            <h3 class="text-sm font-bold text-vert-800 mb-3 flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Demandes par logement</h3>
+            <h3 class="text-sm font-bold text-vert-800 mb-3 flex items-center gap-2"><i data-lucide="utensils" class="w-4 h-4"></i> Demandes par motif</h3>
             ${logHtml}
         </div>
         <div class="bg-white rounded-xl border border-sable-300 shadow-sm p-4">
@@ -1661,7 +1663,7 @@ function renderLogements() {
         <div class="p-4 flex flex-col flex-1">
             <h3 class="font-serif text-lg font-bold text-vert-800">${l.nom}</h3>
             <p class="text-sm text-terre-600 mt-1">À partir de <span class="font-bold text-terre-800">${l.prix}€</span> <span class="text-terre-400">/ nuit</span></p>
-            <a href="https://reservation.lesarchersvoiron.fr" target="_blank" rel="noopener" class="mt-3 block text-center bg-vert-800 hover:bg-vert-600 text-white font-bold text-sm py-2 rounded-lg transition-colors">Réserver</a>
+            <a href="https://app.overfull.fr/booking-v2?key_id=G75aGzzUHsf&source=Web&lang=fr" target="_blank" rel="noopener" class="mt-3 block text-center bg-vert-800 hover:bg-vert-600 text-white font-bold text-sm py-2 rounded-lg transition-colors">Réserver</a>
         </div>
     </div>`).join('');
     if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
@@ -1685,7 +1687,7 @@ async function loadBookingCatalog() {
             <div class="p-4 flex flex-col flex-1">
                 <h3 class="font-serif text-lg font-bold text-vert-800">${l.nom}</h3>
                 <p class="text-sm text-terre-600 mt-1">À partir de <span class="font-bold text-terre-800">${l.prix_nuit != null ? l.prix_nuit + '€' : '—'}</span> <span class="text-terre-400">/ nuit · ${l.capacite} pers. max</span></p>
-                <a href="https://reservation.lesarchersvoiron.fr" target="_blank" rel="noopener" class="mt-3 block text-center bg-vert-800 hover:bg-vert-600 text-white font-bold text-sm py-2 rounded-lg transition-colors">Réserver</a>
+                <a href="https://app.overfull.fr/booking-v2?key_id=G75aGzzUHsf&source=Web&lang=fr" target="_blank" rel="noopener" class="mt-3 block text-center bg-vert-800 hover:bg-vert-600 text-white font-bold text-sm py-2 rounded-lg transition-colors">Réserver</a>
             </div>
         </div>`).join('');
         if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
