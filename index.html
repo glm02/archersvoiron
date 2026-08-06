@@ -2757,6 +2757,16 @@
 
     <!-- Vercel Web Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
+
+    <!-- Bannière discrète -->
+    <div id="site-notice-banner"
+        class="fixed bottom-0 left-0 w-full z-40 bg-terre-900/90 backdrop-blur-sm text-sable-50 text-xs sm:text-sm py-2 px-4 flex items-center justify-center gap-3 text-center">
+        <span>Photos en attente d'une meilleure qualité · Ce site est à vendre — contact :
+            <a href="mailto:rafael.gmail@gmail.com" class="underline hover:text-terre-300">rafael.gmail@gmail.com</a>
+        </span>
+        <button type="button" onclick="document.getElementById('site-notice-banner').remove()"
+            aria-label="Fermer" class="text-sable-50/70 hover:text-sable-50 text-base leading-none flex-shrink-0">&times;</button>
+    </div>
 </body>
 
 </html>
