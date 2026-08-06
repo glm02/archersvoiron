@@ -24,9 +24,9 @@ Vercel → ton projet → **Settings → Environment Variables**. Ajoute :
 | `CAMPAIGNS_ENABLED` | `true` | Seulement quand tu veux activer l'envoi réel des campagnes email (relances, avis). Tant que c'est absent/`false`, tout reste en mode simulation, rien n'est envoyé. |
 | `REVIEW_URL` | Lien vers votre fiche Google pour laisser un avis | Optionnel, une valeur par défaut est déjà en place |
 
-**Ne pas ajouter maintenant** (volontairement laissés vides — projet Supabase séparé à faire plus tard) :
-`SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `STRIPE_SECRET_KEY`.
-Tant qu'ils sont absents, les fonctionnalités liées (compte client, paiement Stripe) restent simplement inactives — le reste du site fonctionne normalement.
+**Supabase (compte client "Mon espace")** : connecté ✅ — l'URL et la clé publique sont directement dans `script.js` (elles sont conçues pour être publiques, comme une clé anon). Inscription/connexion par email fonctionnent réellement. Un compte de test a été créé pendant la vérification (`archersvoiron.test+...@gmail.com`) — supprimable depuis Supabase → Authentication → Users si tu veux une liste propre.
+
+Reste **volontairement non branché** : `SUPABASE_SERVICE_ROLE_KEY` et `STRIPE_SECRET_KEY`. Sans eux, "Mes réservations" et le paiement en ligne restent inactifs — seule l'inscription/connexion de base fonctionne. Le projet Supabase (`zuwvoroyfwieiiwuxspi`) n'est pas géré depuis le même compte que le connecteur MCP utilisé ici, donc la création de tables devra se faire manuellement sur le dashboard Supabase le jour où on active ces fonctionnalités.
 
 ## 3. Base de données (Vercel KV) — obligatoire pour l'admin
 

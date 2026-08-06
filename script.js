@@ -1511,10 +1511,10 @@ window._deleteRes = async function (id) {
 };
 
 // ===== Espace client — Supabase Auth =====
-// Pas encore de projet Supabase pour la Brasserie des Archers (à provisionner séparément) :
-// on laisse volontairement ces clés vides pour ne pas dépendre d'un autre projet.
-const SUPA_URL = '';
-const SUPA_KEY = '';
+// Projet Supabase dédié à la Brasserie des Archers.
+// Clé "publishable" : conçue pour être exposée côté client (équivalent de l'ancienne clé anon).
+const SUPA_URL = 'https://zuwvoroyfwieiiwuxspi.supabase.co';
+const SUPA_KEY = 'sb_publishable_QBjapfwDh473NlszAomrbw_RIKNqn8i';
 let _supa = null;
 let _compteWired = false;
 let _recoveryMode = (typeof window !== "undefined") && /type=recovery/.test(window.location.hash);
