@@ -499,8 +499,9 @@
             max-height: 520px;
             min-height: 240px;
             overflow: hidden;
-            border-radius: 1rem;
-            background: #e8dfd1;
+            border-radius: 1.25rem;
+            background: #F5B9CE;
+            box-shadow: 0 20px 45px -15px rgba(92, 35, 56, 0.35);
         }
 
         @media (max-width: 640px) {
@@ -525,11 +526,18 @@
             height: 100%;
             object-fit: cover;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transform: scale(1.06);
+            transition: opacity 0.9s ease;
         }
 
         .cv-slide.active {
             opacity: 1;
+            animation: cvKenBurns 6s ease-out forwards;
+        }
+
+        @keyframes cvKenBurns {
+            from { transform: scale(1.06); }
+            to { transform: scale(1); }
         }
 
         .cv-caption {
@@ -537,11 +545,26 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 2rem 1.25rem 1rem;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
+            padding: 2.25rem 1.25rem 1.15rem;
+            background: linear-gradient(to top, rgba(39, 22, 32, 0.8) 0%, rgba(39, 22, 32, 0.15) 70%, transparent 100%);
             color: white;
             z-index: 5;
             pointer-events: none;
+        }
+
+        .cv-progress {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, #F6D686, #EC6F9B);
+            z-index: 6;
+        }
+
+        .cv-progress.animating {
+            transition: width 4s linear;
+            width: 100%;
         }
 
         .cv-caption-title {
@@ -569,19 +592,20 @@
             width: 2.75rem;
             height: 2.75rem;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border: none;
             cursor: pointer;
-            color: #3A4B20;
-            transition: background 0.2s, transform 0.2s;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+            color: #99204F;
+            transition: background 0.2s, transform 0.2s, color 0.2s;
+            box-shadow: 0 4px 16px rgba(92, 35, 56, 0.25);
         }
 
         .cv-btn:hover {
-            background: rgba(255, 255, 255, 0.95);
-            transform: translateY(-50%) scale(1.08);
+            background: #EC6F9B;
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
         }
 
         .cv-prev {
@@ -597,14 +621,14 @@
             top: 0.75rem;
             right: 0.75rem;
             z-index: 10;
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            padding: 0.25rem 0.65rem;
+            padding: 0.3rem 0.75rem;
             border-radius: 999px;
             font-size: 0.78rem;
             font-weight: 700;
-            color: #3A4B20;
+            color: #99204F;
             letter-spacing: 0.05em;
             pointer-events: none;
         }
@@ -648,7 +672,7 @@
 
         .cv-thumb.active,
         .cv-thumb:hover {
-            border-color: #3A4B20;
+            border-color: #EC6F9B;
             opacity: 1;
         }
 
@@ -1483,6 +1507,7 @@
                             <p class="cv-caption-title">La terrasse des Archers</p>
                             <p class="cv-caption-desc">Place du Général Leclerc, en plein cœur de Voiron</p>
                         </div>
+                        <div class="cv-progress" id="cv-progress"></div>
                         <button class="cv-btn cv-prev" id="cv-prev" aria-label="Précédent">
                             <i data-lucide="chevron-left" class="w-6 h-6"></i>
                         </button>
@@ -2414,8 +2439,8 @@
                     <div class="absolute inset-0 bg-vert-800/75"></div>
                     <div class="relative p-10 text-white h-full flex flex-col justify-center">
                         <p class="text-sable-300 uppercase tracking-widest text-xs font-semibold mb-3">Brasserie des Archers</p>
-                        <h2 class="font-serif text-3xl font-bold mb-4 leading-tight">Votre espace séjour</h2>
-                        <p class="text-sable-200 mb-8 leading-relaxed">Créez votre compte pour suivre vos demandes, retrouver vos séjours et préparer votre prochaine escapade en toute simplicité.</p>
+                        <h2 class="font-serif text-3xl font-bold mb-4 leading-tight">Votre espace fidélité</h2>
+                        <p class="text-sable-200 mb-8 leading-relaxed">Créez votre compte pour suivre vos demandes de réservation et préparer votre prochaine visite en toute simplicité.</p>
                         <ul class="space-y-4 text-sable-100 text-sm">
                             <li class="flex items-center gap-3"><span class="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0"><i data-lucide="calendar-check" class="w-4 h-4"></i></span> Suivez l'état de vos demandes de réservation</li>
                             <li class="flex items-center gap-3"><span class="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0"><i data-lucide="clock" class="w-4 h-4"></i></span> Réservez plus rapidement la prochaine fois</li>
@@ -2636,9 +2661,21 @@
 
             const caption = document.getElementById('cv-caption');
             const counter = document.getElementById('cv-counter');
+            const progress = document.getElementById('cv-progress');
 
             function getSlides() { return carouselEl.querySelectorAll('.cv-slide'); }
             function getThumbs() { return document.querySelectorAll('#cv-thumbs .cv-thumb'); }
+
+            function resetProgress() {
+                if (!progress) return;
+                progress.classList.remove('animating');
+                void progress.offsetWidth; // force reflow to restart the CSS transition
+                progress.classList.add('animating');
+            }
+            function stopProgress() {
+                if (!progress) return;
+                progress.classList.remove('animating');
+            }
 
             function goTo(idx) {
                 const sl = getSlides();
@@ -2656,15 +2693,18 @@
                     caption.querySelector('.cv-caption-desc').textContent = cap.desc;
                 }
                 if (counter) counter.textContent = pad(window._cvState.current + 1) + ' / ' + pad(getSlides().length);
+                if (window._cvAutoplay) resetProgress(); else stopProgress();
             }
 
             function start() {
                 clearInterval(window._cvAutoplay);
                 window._cvAutoplay = setInterval(() => goTo(window._cvState.current + 1), 4000);
+                resetProgress();
             }
             function stop() {
                 clearInterval(window._cvAutoplay);
                 window._cvAutoplay = null;
+                stopProgress();
             }
 
             const prevBtn = document.getElementById('cv-prev');
