@@ -1828,25 +1828,40 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div>
-                                    <label for="guests" class="block text-sm font-medium text-terre-800 mb-2">Nombre de
-                                        personnes</label>
-                                    <input type="number" id="guests" name="guests" min="1" max="30"
-                                        class="w-full px-4 py-3 rounded-lg border border-sable-300 bg-white focus:border-terre-400 focus:ring-2 focus:ring-terre-400/20 outline-none transition-all">
+                            <div>
+                                <label for="guests" class="block text-sm font-medium text-terre-800 mb-2">Nombre de
+                                    personnes</label>
+                                <input type="number" id="guests" name="guests" min="1" max="30" value="2"
+                                    class="w-full px-4 py-3 rounded-lg border border-sable-300 bg-white focus:border-terre-400 focus:ring-2 focus:ring-terre-400/20 outline-none transition-all">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-terre-800 mb-2">Date et heure
+                                    souhaitées</label>
+                                <div class="rounded-xl border border-sable-300 bg-white overflow-hidden md:flex">
+                                    <div class="p-4 md:flex-1">
+                                        <div class="flex items-center justify-between mb-3">
+                                            <button type="button" id="cal-prev" aria-label="Mois précédent"
+                                                class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-sable-200 text-terre-600 transition-colors">
+                                                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                                            </button>
+                                            <span id="cal-month-label" class="text-sm font-bold text-vert-800 capitalize"></span>
+                                            <button type="button" id="cal-next" aria-label="Mois suivant"
+                                                class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-sable-200 text-terre-600 transition-colors">
+                                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                            </button>
+                                        </div>
+                                        <div class="grid grid-cols-7 gap-1 mb-1 text-center text-[11px] font-semibold text-terre-400 uppercase" id="cal-weekdays"></div>
+                                        <div class="grid grid-cols-7 gap-1" id="cal-days"></div>
+                                    </div>
+                                    <div class="border-t md:border-t-0 md:border-l border-sable-200 p-4 md:w-40 max-h-40 md:max-h-none overflow-y-auto">
+                                        <p class="text-[11px] font-semibold text-terre-400 uppercase mb-2">Heure</p>
+                                        <div class="grid grid-cols-3 md:grid-cols-2 gap-1.5" id="cal-timeslots"></div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <label for="checkin" class="block text-sm font-medium text-terre-800 mb-2">Date
-                                        souhaitée</label>
-                                    <input type="date" id="checkin" name="checkin"
-                                        class="w-full px-4 py-3 rounded-lg border border-sable-300 bg-white focus:border-terre-400 focus:ring-2 focus:ring-terre-400/20 outline-none transition-all">
-                                </div>
-                                <div>
-                                    <label for="checkout"
-                                        class="block text-sm font-medium text-terre-800 mb-2">Heure souhaitée</label>
-                                    <input type="time" id="checkout" name="checkout"
-                                        class="w-full px-4 py-3 rounded-lg border border-sable-300 bg-white focus:border-terre-400 focus:ring-2 focus:ring-terre-400/20 outline-none transition-all">
-                                </div>
+                                <p id="cal-summary" class="text-xs text-terre-500 mt-2"></p>
+                                <input type="hidden" id="checkin" name="checkin">
+                                <input type="hidden" id="checkout" name="checkout">
                             </div>
 
                             <div>

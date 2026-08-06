@@ -126,8 +126,134 @@ faqItems.forEach(item => {
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
 
-const today = new Date().toISOString().split('T')[0];
-document.getElementById('checkin').setAttribute('min', today);
+// 5a. Sélecteur de date & heure (calendrier + créneaux, remplace les inputs natifs)
+(function initReservationCalendar() {
+    const daysEl = document.getElementById('cal-days');
+    const weekdaysEl = document.getElementById('cal-weekdays');
+    const monthLabelEl = document.getElementById('cal-month-label');
+    const prevBtn = document.getElementById('cal-prev');
+    const nextBtn = document.getElementById('cal-next');
+    const slotsEl = document.getElementById('cal-timeslots');
+    const summaryEl = document.getElementById('cal-summary');
+    const checkinInput = document.getElementById('checkin');
+    const checkoutInput = document.getElementById('checkout');
+    if (!daysEl || !checkinInput || !checkoutInput) return;
+
+    const WEEKDAYS = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
+    const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+
+    // Ouvert du lundi au samedi, 8h-22h — fermé le dimanche
+    const TIME_SLOTS = [];
+    for (let h = 8; h <= 21; h++) {
+        TIME_SLOTS.push(`${String(h).padStart(2, '0')}:00`);
+        TIME_SLOTS.push(`${String(h).padStart(2, '0')}:30`);
+    }
+
+    const todayDate = new Date();
+    todayDate.setHours(0, 0, 0, 0);
+
+    let viewYear = todayDate.getFullYear();
+    let viewMonth = todayDate.getMonth();
+    let selectedDate = null;
+    let selectedTime = null;
+
+    const pad = (n) => String(n).padStart(2, '0');
+    const toISODate = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+
+    weekdaysEl.innerHTML = WEEKDAYS.map((d) => `<span>${d}</span>`).join('');
+
+    function renderCalendar() {
+        monthLabelEl.textContent = `${MONTHS[viewMonth]} ${viewYear}`;
+
+        const firstOfMonth = new Date(viewYear, viewMonth, 1);
+        const startOffset = (firstOfMonth.getDay() + 6) % 7; // Lundi = 0
+        const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+        let html = '';
+        for (let i = 0; i < startOffset; i++) html += '<span></span>';
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const d = new Date(viewYear, viewMonth, day);
+            const disabled = d.getDay() === 0 || d < todayDate; // dimanche ou date passée
+            const isSelected = selectedDate && toISODate(d) === toISODate(selectedDate);
+
+            const base = 'w-full aspect-square flex items-center justify-center text-sm rounded-lg transition-colors';
+            let cls;
+            if (disabled) cls = `${base} text-terre-300 cursor-not-allowed line-through`;
+            else if (isSelected) cls = `${base} bg-vert-800 text-white font-bold`;
+            else cls = `${base} text-terre-800 hover:bg-sable-200 cursor-pointer`;
+
+            html += `<button type="button" class="${cls}" ${disabled ? 'disabled' : ''} data-date="${toISODate(d)}">${day}</button>`;
+        }
+
+        daysEl.innerHTML = html;
+        daysEl.querySelectorAll('button[data-date]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                selectedDate = new Date(btn.dataset.date + 'T00:00:00');
+                checkinInput.value = btn.dataset.date;
+                renderCalendar();
+                updateSummary();
+            });
+        });
+    }
+
+    function renderTimeSlots() {
+        slotsEl.innerHTML = TIME_SLOTS.map((t) => {
+            const isSelected = selectedTime === t;
+            const cls = isSelected
+                ? 'bg-terre-400 text-white border-terre-400 font-bold'
+                : 'bg-white text-terre-700 border-sable-300 hover:border-terre-400';
+            return `<button type="button" class="border rounded-lg text-xs py-1.5 px-1 transition-colors ${cls}" data-time="${t}">${t}</button>`;
+        }).join('');
+
+        slotsEl.querySelectorAll('button[data-time]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                selectedTime = btn.dataset.time;
+                checkoutInput.value = selectedTime;
+                renderTimeSlots();
+                updateSummary();
+            });
+        });
+    }
+
+    function updateSummary() {
+        if (selectedDate && selectedTime) {
+            const label = selectedDate.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+            summaryEl.textContent = `Réservation souhaitée le ${label} à ${selectedTime}.`;
+        } else if (selectedDate) {
+            summaryEl.textContent = 'Choisissez une heure pour finaliser votre créneau.';
+        } else {
+            summaryEl.textContent = 'Sélectionnez une date et une heure (optionnel).';
+        }
+    }
+
+    prevBtn.addEventListener('click', () => {
+        viewMonth--;
+        if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+        renderCalendar();
+    });
+    nextBtn.addEventListener('click', () => {
+        viewMonth++;
+        if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+        renderCalendar();
+    });
+
+    window._resetReservationCalendar = function () {
+        viewYear = todayDate.getFullYear();
+        viewMonth = todayDate.getMonth();
+        selectedDate = null;
+        selectedTime = null;
+        checkinInput.value = '';
+        checkoutInput.value = '';
+        renderCalendar();
+        renderTimeSlots();
+        updateSummary();
+    };
+
+    renderCalendar();
+    renderTimeSlots();
+    updateSummary();
+})();
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -200,6 +326,7 @@ contactForm.addEventListener('submit', async (e) => {
         if (!resp.ok) throw new Error(result.error || 'Erreur serveur');
 
         contactForm.reset();
+        if (window._resetReservationCalendar) window._resetReservationCalendar();
         localStorage.removeItem('contactFormDraft');
         formSuccess.classList.remove('hidden');
         setTimeout(() => formSuccess.classList.add('hidden'), 5000);
