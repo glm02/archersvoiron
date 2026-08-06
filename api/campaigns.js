@@ -19,7 +19,7 @@ const FROM = 'Brasserie des Archers <noreply@lesarchersvoiron.fr>';
 // or les clients mail ne suivent PAS les redirections d'images -> www obligatoire.
 const IMG_BASE = 'https://www.lesarchersvoiron.fr';
 const SITE = (process.env.SITE_URL || 'https://www.lesarchersvoiron.fr').replace(/\/$/, '');
-const REVIEW_URL = process.env.REVIEW_URL || 'https://www.google.com/maps?q=Les+Archers+9+Place+du+G%C3%A9n%C3%A9ral+Leclerc+Voiron';
+const REVIEW_URL = process.env.REVIEW_URL || 'https://maps.app.goo.gl/VtYKj2cncrgrKq5b8';
 // Image d'en-tête commune à tous les emails (bar, servie en direct sur www)
 const HERO_IMG = `${IMG_BASE}/photo/bar-interieur.webp`;
 const IMG_TABLE = `${IMG_BASE}/photo/plat.webp`;
