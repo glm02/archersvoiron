@@ -676,6 +676,23 @@
             opacity: 1;
         }
 
+        /* Fan de photos (section Bienvenue) */
+        .fan-card {
+            opacity: 0;
+            filter: blur(8px);
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease, filter 0.6s ease;
+        }
+
+        .fan-card-1 { transform: translate(30px, 30px) rotate(0deg); transition-delay: .15s; }
+        .fan-card-2 { transform: translate(0, 10px) rotate(0deg); transition-delay: .25s; }
+        .fan-card-3 { transform: translate(-30px, 30px) rotate(0deg); transition-delay: .35s; }
+
+        .fan-wrap.active .fan-card-1 { opacity: 1; filter: blur(0); transform: translate(0, 20px) rotate(-6deg); }
+        .fan-wrap.active .fan-card-2 { opacity: 1; filter: blur(0); transform: translate(0, -8px) rotate(0deg); }
+        .fan-wrap.active .fan-card-3 { opacity: 1; filter: blur(0); transform: translate(0, 20px) rotate(6deg); }
+
+        .fan-card:hover { transform: translateY(-6px) scale(1.03) !important; z-index: 30; }
+
         /* Tableau des réservations : transformation en cartes sur mobile */
         @media (max-width: 767px) {
             #res-table thead {
@@ -897,42 +914,44 @@
             </div>
         </div>
 
-        <!-- About Section -->
-        <section id="domaine" class="py-24 bg-sable-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div class="reveal">
-                        <p class="text-terre-400 font-semibold tracking-wider uppercase text-sm mb-2">Un héritage de 1905</p>
-                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-vert-800 mb-6">L'histoire<br>des
-                            Archers
-                        </h2>
-                        <div class="space-y-4 text-terre-800/80 leading-relaxed">
-                            <p>Depuis <strong>1905</strong>, la Brasserie des Archers se dresse fièrement à Voiron, unissant le
-                                charme intemporel de la tradition à l'élan audacieux de la modernité. Ce lieu
-                                emblématique a traversé les décennies, préservant l'âme de la brasserie tout en
-                                s'ouvrant aux tendances contemporaines.</p>
-                            <p>Les murs racontent des histoires de rencontres chaleureuses et de moments partagés, où
-                                le passé et le présent se rejoignent dans une harmonie parfaite. Aujourd'hui, <strong>Les
-                                Archers</strong> continue de séduire par son ambiance chic et conviviale, place du
-                                Général Leclerc au cœur de Voiron.</p>
-                        </div>
+        <!-- Bienvenue / Fan Hero Section -->
+        <section id="domaine" class="py-20 sm:py-28 bg-sable-100 relative overflow-hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center gap-8 sm:gap-10">
+                <div class="reveal flex w-full max-w-2xl flex-col items-center gap-5">
+                    <p class="text-terre-400 font-semibold tracking-wider uppercase text-sm">Bienvenue</p>
+                    <h2 class="font-serif font-bold text-vert-800 text-3xl sm:text-4xl md:text-5xl leading-tight">
+                        Café, Brasserie &amp; Afterwork<br>au cœur de Voiron
+                    </h2>
+                    <p class="text-terre-700/80 max-w-lg text-sm sm:text-base leading-relaxed">
+                        Depuis notre terrasse place du Général Leclerc, on vous accueille du café du matin aux
+                        cocktails du soir. Une cuisine généreuse, une carte de saison, et cette ambiance chaleureuse
+                        qui fait revenir nos habitués.
+                    </p>
+                </div>
+
+                <div class="reveal delay-100 flex flex-col items-center gap-4">
+                    <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3">
+                        <a href="https://app.overfull.fr/booking-v2?key_id=G75aGzzUHsf&source=Web&lang=fr" target="_blank" rel="noopener"
+                            class="bg-terre-400 hover:bg-terre-500 text-white px-7 py-3 rounded-full font-bold transition-colors">Réservez
+                            votre table</a>
+                        <a href="#specialites"
+                            class="border border-terre-300 hover:bg-white text-vert-800 px-7 py-3 rounded-full font-bold transition-colors">Découvrir
+                            la carte</a>
                     </div>
-                    <div class="relative reveal delay-200">
-                        <div class="aspect-[4/5] rounded-t-full overflow-hidden border-8 border-sable-200 shadow-xl">
-                            <img loading="lazy" id="public-about" src="/photo/bar-interieur.webp"
-                                alt="Salle intérieure et comptoir historique de la Brasserie des Archers à Voiron" class="w-full h-full object-cover">
+                    <p class="text-terre-500 text-xs font-medium">★ 4,1/5 sur 785 avis Google</p>
+                </div>
+
+                <!-- Fan de photos -->
+                <div class="fan-wrap reveal delay-200 mx-auto w-full max-w-3xl">
+                    <div class="relative flex w-full items-center justify-center">
+                        <div class="fan-card fan-card-1 relative shrink-0 w-[38%] -mr-8 rounded-xl overflow-hidden shadow-xl aspect-[4/5]">
+                            <img src="/photo/facade-3.webp" alt="Terrasse de la Brasserie des Archers place du Général Leclerc" loading="lazy" class="w-full h-full object-cover">
                         </div>
-                        <!-- Badge superhost/rating -->
-                        <div
-                            class="absolute bottom-10 -left-6 bg-white p-4 rounded-xl shadow-lg flex items-center gap-4">
-                            <div id="public-rating-badge"
-                                class="bg-terre-400 text-white w-12 h-12 flex items-center justify-center rounded-full font-bold text-xl">
-                                4,1</div>
-                            <div>
-                                <p class="font-bold text-terre-800">Très bien noté</p>
-                                <p id="public-booking-reviews-label" class="text-xs text-terre-600">785 avis sur
-                                    Google</p>
-                            </div>
+                        <div class="fan-card fan-card-2 relative shrink-0 w-[42%] z-10 rounded-xl overflow-hidden shadow-2xl aspect-[4/5]">
+                            <img src="/photo/bar-interieur.webp" alt="Comptoir et salle historique de la Brasserie des Archers" loading="lazy" class="w-full h-full object-cover">
+                        </div>
+                        <div class="fan-card fan-card-3 relative shrink-0 w-[38%] -ml-8 rounded-xl overflow-hidden shadow-xl aspect-[4/5]">
+                            <img src="/photo/cocktail.webp" alt="Cocktail signature de la Brasserie des Archers" loading="lazy" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
