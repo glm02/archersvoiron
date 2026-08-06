@@ -69,7 +69,7 @@
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.1",
-        "reviewCount": "785",
+        "reviewCount": "436",
         "bestRating": "5"
       },
       "openingHoursSpecification": [
@@ -791,7 +791,7 @@
     <div id="public-site">
 
         <!-- Navigation -->
-        <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="navbar">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-20">
                     <!-- Logo -->
@@ -938,7 +938,7 @@
                             class="border border-terre-300 hover:bg-white text-vert-800 px-7 py-3 rounded-full font-bold transition-colors">Découvrir
                             la carte</a>
                     </div>
-                    <p class="text-terre-500 text-xs font-medium">★ 4,1/5 sur 785 avis Google</p>
+                    <p class="text-terre-500 text-xs font-medium">★ 4,1/5 sur 436 avis Google</p>
                 </div>
 
                 <!-- Fan de photos -->
@@ -1006,7 +1006,7 @@
 
                     <div class="flex flex-wrap justify-center items-center gap-6 mt-8 mb-12 text-sm">
                         <div class="text-center"><span class="block text-xl font-bold text-terre-800">4,1</span>
-                            Note Google (785 avis)</div>
+                            Note Google (436 avis)</div>
                         <div class="w-px h-8 bg-terre-300 hidden md:block"></div>
                         <div class="text-center"><span class="block text-xl font-bold text-terre-800">20–30€</span>
                             Prix par personne</div>
@@ -1016,10 +1016,10 @@
                     </div>
                 </div>
 
-                <!-- Reviews Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 reveal delay-200">
+                <!-- Reviews Carousel (glissable sur mobile, grille sur desktop) -->
+                <div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-5 pb-4 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-3 reveal delay-200">
                     <!-- Michel -->
-                    <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                    <div class="review-card w-[82vw] sm:w-[340px] flex-shrink-0 snap-start md:w-auto md:flex-shrink bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
                         <div class="flex items-start justify-between mb-3">
                             <div class="flex items-center gap-3">
                                 <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background:#C22A68">M</div>
@@ -1041,7 +1041,7 @@
                         <button type="button" class="review-toggle text-xs font-bold text-terre-400 hover:text-terre-600 mt-2" onclick="window._toggleReview(this)">Lire la suite</button>
                     </div>
                     <!-- MCEIHTFAN -->
-                    <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                    <div class="review-card w-[82vw] sm:w-[340px] flex-shrink-0 snap-start md:w-auto md:flex-shrink bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
                         <div class="flex items-start justify-between mb-3">
                             <div class="flex items-center gap-3">
                                 <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background:#99204F">M</div>
@@ -1063,7 +1063,7 @@
                         <button type="button" class="review-toggle text-xs font-bold text-terre-400 hover:text-terre-600 mt-2" onclick="window._toggleReview(this)">Lire la suite</button>
                     </div>
                     <!-- olivier lemaire -->
-                    <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                    <div class="review-card w-[82vw] sm:w-[340px] flex-shrink-0 snap-start md:w-auto md:flex-shrink bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
                         <div class="flex items-start justify-between mb-3">
                             <div class="flex items-center gap-3">
                                 <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background:#6B3F4F">O</div>
@@ -1085,7 +1085,7 @@
                         <button type="button" class="review-toggle text-xs font-bold text-terre-400 hover:text-terre-600 mt-2 hidden" onclick="window._toggleReview(this)">Lire la suite</button>
                     </div>
                     <!-- PoPs -->
-                    <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                    <div class="review-card w-[82vw] sm:w-[340px] flex-shrink-0 snap-start md:w-auto md:flex-shrink bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
                         <div class="flex items-start justify-between mb-3">
                             <div class="flex items-center gap-3">
                                 <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background:#E14584">P</div>
@@ -1107,7 +1107,7 @@
                         <button type="button" class="review-toggle text-xs font-bold text-terre-400 hover:text-terre-600 mt-2" onclick="window._toggleReview(this)">Lire la suite</button>
                     </div>
                     <!-- laurent laroche -->
-                    <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                    <div class="review-card w-[82vw] sm:w-[340px] flex-shrink-0 snap-start md:w-auto md:flex-shrink bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
                         <div class="flex items-start justify-between mb-3">
                             <div class="flex items-center gap-3">
                                 <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background:#EC6F9B">L</div>
@@ -1129,7 +1129,7 @@
                         <button type="button" class="review-toggle text-xs font-bold text-terre-400 hover:text-terre-600 mt-2" onclick="window._toggleReview(this)">Lire la suite</button>
                     </div>
                     <!-- Julien Saunier -->
-                    <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                    <div class="review-card w-[82vw] sm:w-[340px] flex-shrink-0 snap-start md:w-auto md:flex-shrink bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
                         <div class="flex items-start justify-between mb-3">
                             <div class="flex items-center gap-3">
                                 <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background:#5C2338">J</div>
@@ -1151,7 +1151,7 @@
                         <button type="button" class="review-toggle text-xs font-bold text-terre-400 hover:text-terre-600 mt-2" onclick="window._toggleReview(this)">Lire la suite</button>
                     </div>
                     <!-- Elisa MON -->
-                    <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                    <div class="review-card w-[82vw] sm:w-[340px] flex-shrink-0 snap-start md:w-auto md:flex-shrink bg-white p-6 rounded-2xl shadow-sm border border-terre-200 hover:shadow-lg hover:-translate-y-0.5 transition-all">
                         <div class="flex items-start justify-between mb-3">
                             <div class="flex items-center gap-3">
                                 <div class="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background:#A9503B">E</div>
@@ -1234,7 +1234,7 @@
                     <!-- Café -->
                     <div
                         class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-sable-200 group reveal">
-                        <div class="aspect-[4/5] overflow-hidden">
+                        <div class="aspect-[4/3] overflow-hidden">
                             <img src="/photo/cafe-1.webp" alt="Café servi sur table en marbre à la Brasserie des Archers à Voiron"
                                 loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         </div>
@@ -1249,7 +1249,7 @@
                     <!-- Formules du jour -->
                     <div
                         class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-sable-200 group reveal delay-100">
-                        <div class="aspect-[4/5] overflow-hidden">
+                        <div class="aspect-[4/3] overflow-hidden">
                             <img src="/photo/plat-4.webp" alt="Assiette du plat du jour à la Brasserie des Archers à Voiron"
                                 loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         </div>
@@ -1267,7 +1267,7 @@
                     <!-- Cocktails signature -->
                     <div
                         class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-sable-200 group reveal delay-200">
-                        <div class="aspect-[4/5] overflow-hidden">
+                        <div class="aspect-[4/3] overflow-hidden">
                             <img src="/photo/cocktail.webp" alt="Cocktail signature servi au bar de la Brasserie des Archers à Voiron"
                                 loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         </div>
@@ -1282,7 +1282,7 @@
                     <!-- Les tapas -->
                     <div
                         class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-terre-400 group reveal">
-                        <div class="aspect-[4/5] overflow-hidden">
+                        <div class="aspect-[4/3] overflow-hidden">
                             <img src="/photo/terrasse-1.webp" alt="Moment gourmand en terrasse à la Brasserie des Archers à Voiron"
                                 loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         </div>
@@ -1426,58 +1426,58 @@
         </section>
 
         <!-- Section Événements & groupes -->
-        <section class="py-20 bg-white">
+        <section class="py-14 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-sable-50 rounded-3xl p-8 md:p-12 border border-sable-200 reveal">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="bg-sable-50 rounded-3xl p-6 md:p-9 border border-sable-200 reveal">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                         <div>
-                            <div class="flex items-center gap-4 mb-6">
-                                <span class="p-3 bg-vert-100 rounded-2xl text-vert-800">
-                                    <i data-lucide="party-popper" class="w-8 h-8"></i>
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="p-2.5 bg-vert-100 rounded-2xl text-vert-800">
+                                    <i data-lucide="party-popper" class="w-6 h-6"></i>
                                 </span>
-                                <h3 class="text-3xl md:text-4xl font-serif font-bold text-vert-800">Groupes &amp;
+                                <h3 class="text-2xl md:text-3xl font-serif font-bold text-vert-800">Groupes &amp;
                                     événements privés</h3>
                             </div>
-                            <p class="text-terre-800 leading-relaxed mb-6 text-lg">
+                            <p class="text-terre-800 leading-relaxed mb-4">
                                 Envie de célébrer un moment unique ? La Brasserie des Archers est le cadre idéal pour vos
                                 événements :
                                 <strong>afterworks d'entreprise, anniversaires ou repas de groupe</strong>.
                             </p>
-                            <ul class="space-y-4 text-terre-700 mb-8">
+                            <ul class="space-y-2.5 text-sm text-terre-700 mb-6">
                                 <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-vert-600 mt-1"></i>
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-vert-600 mt-0.5"></i>
                                     <span><strong>Grande terrasse</strong> : place du Général Leclerc, en plein cœur
                                         de Voiron.</span>
                                 </li>
                                 <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-vert-600 mt-1"></i>
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-vert-600 mt-0.5"></i>
                                     <span><strong>Salle historique</strong> : un cadre chic et convivial depuis
                                         1905.</span>
                                 </li>
                                 <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-vert-600 mt-1"></i>
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-vert-600 mt-0.5"></i>
                                     <span><strong>Cocktails &amp; tapas</strong> : formules sur mesure pour vos
                                         groupes et afterworks.</span>
                                 </li>
                                 <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-vert-600 mt-1"></i>
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-vert-600 mt-0.5"></i>
                                     <span><strong>Emplacement central</strong> : facilement accessible en plein
                                         centre-ville de Voiron.</span>
                                 </li>
                             </ul>
                             <a href="#contact"
-                                class="inline-block bg-vert-800 text-white px-8 py-4 rounded-xl font-bold hover:bg-vert-700 transition-all shadow-lg hover:shadow-vert-900/20">Nous
+                                class="inline-block bg-vert-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-vert-700 transition-all shadow-lg hover:shadow-vert-900/20">Nous
                                 contacter</a>
                         </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <img src="/photo/facade-2.webp" class="rounded-2xl shadow-md h-48 w-full object-cover mt-8"
+                        <div class="grid grid-cols-2 gap-3">
+                            <img src="/photo/facade-2.webp" class="rounded-2xl shadow-md h-32 w-full object-cover mt-5"
                                 alt="Terrasse de la Brasserie des Archers place du Général Leclerc à Voiron">
                             <img src="/photo/interieur-2.webp"
-                                class="rounded-2xl shadow-md h-48 w-full object-cover" alt="Salle de la Brasserie des Archers à Voiron">
+                                class="rounded-2xl shadow-md h-32 w-full object-cover" alt="Salle de la Brasserie des Archers à Voiron">
                             <img src="/photo/cocktail-2.webp"
-                                class="rounded-2xl shadow-md h-48 w-full object-cover" alt="Cocktails servis à la Brasserie des Archers à Voiron">
+                                class="rounded-2xl shadow-md h-32 w-full object-cover" alt="Cocktails servis à la Brasserie des Archers à Voiron">
                             <img src="/photo/dessert-1.webp"
-                                class="rounded-2xl shadow-md h-48 w-full object-cover -mt-8" alt="Dessert préparé par la cuisine de la Brasserie des Archers">
+                                class="rounded-2xl shadow-md h-32 w-full object-cover -mt-5" alt="Dessert préparé par la cuisine de la Brasserie des Archers">
                         </div>
                     </div>
                 </div>
@@ -1718,20 +1718,20 @@
         </section>
 
         <!-- Contact & Booking Section -->
-        <section id="contact" class="py-24 bg-sable-200">
+        <section id="contact" class="py-16 bg-sable-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div
                     class="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row border border-sable-300">
 
                     <!-- Contact Info Panel -->
                     <div
-                        class="lg:w-2/5 bg-terre-50 text-terre-800 p-10 lg:p-14 flex flex-col justify-between relative overflow-hidden border-r border-terre-200">
+                        class="lg:w-2/5 bg-terre-50 text-terre-800 p-8 lg:p-10 flex flex-col justify-between relative overflow-hidden border-r border-terre-200">
                         <div class="relative z-10 reveal">
-                            <h2 class="text-3xl font-serif font-bold mb-4 text-vert-800">Contactez-nous</h2>
-                            <p class="text-terre-600 mb-12">Pour une réponse rapide, appelez-nous ou envoyez un SMS au
+                            <h2 class="text-3xl font-serif font-bold mb-3 text-vert-800">Contactez-nous</h2>
+                            <p class="text-terre-600 mb-6">Pour une réponse rapide, appelez-nous ou envoyez un SMS au
                                 <span class="font-bold text-vert-800">04 76 05 00 42</span>.</p>
 
-                            <div class="space-y-6 text-terre-700">
+                            <div class="space-y-5 text-terre-700">
                                 <div class="flex items-start gap-4">
                                     <i data-lucide="mail" class="w-6 h-6 text-terre-400 mt-1"></i>
                                     <div>
@@ -1768,27 +1768,16 @@
                     </div>
 
                     <!-- Form Panel -->
-                    <div class="lg:w-3/5 p-10 lg:p-14 bg-sable-100 relative">
-                        <h3 class="text-2xl font-serif font-bold text-vert-800 mb-6 reveal">Réservations & Contact</h3>
-
-                        <!-- Alerte priorité téléphone -->
-                        <div
-                            class="bg-terre-50 border border-terre-300 rounded-xl p-4 mb-6 reveal flex items-start gap-3">
-                            <i data-lucide="phone-call" class="w-6 h-6 text-terre-500 mt-0.5 shrink-0"></i>
-                            <div>
-                                <p class="font-bold text-terre-800 mb-1">Privilegiez l'appel ou le SMS</p>
-                                <p class="text-sm text-terre-700 leading-relaxed">Pour une réponse rapide, nous vous
-                                    recommandons fortement de nous appeler ou envoyer un SMS au <a
-                                        href="tel:+33476050042"
-                                        class="font-bold underline hover:text-terre-900 transition-colors">04 76 05 00 42</a>. Nous vous répondrons dans les plus brefs délais.</p>
-                                <a href="tel:+33476050042"
-                                    class="inline-flex items-center gap-2 mt-3 bg-terre-400 hover:bg-terre-500 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors">
-                                    <i data-lucide="phone" class="w-4 h-4"></i> Appeler maintenant
-                                </a>
-                            </div>
+                    <div class="lg:w-3/5 p-8 lg:p-10 bg-sable-100 relative">
+                        <div class="flex items-center justify-between gap-4 mb-5 reveal">
+                            <h3 class="text-2xl font-serif font-bold text-vert-800">Réservations &amp; Contact</h3>
+                            <a href="tel:+33476050042"
+                                class="hidden sm:inline-flex items-center gap-1.5 text-terre-500 hover:text-terre-700 text-xs font-bold whitespace-nowrap transition-colors">
+                                <i data-lucide="phone-call" class="w-3.5 h-3.5"></i> Réponse plus rapide par tél.
+                            </a>
                         </div>
 
-                        <form id="contactForm" class="space-y-6 reveal delay-100">
+                        <form id="contactForm" class="space-y-5 reveal delay-100">
                             <!-- Honeypot invisible pour Anti-Spam -->
                             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
@@ -1895,58 +1884,40 @@
         </section>
 
         <!-- Footer -->
-        <!-- Newsletter / Offre fidélité -->
-        <section class="py-16 bg-vert-800 relative overflow-hidden">
-            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal">
-                <span class="inline-flex items-center gap-2 bg-terre-400/20 text-sable-100 text-xs font-semibold uppercase tracking-wider px-4 py-1.5 rounded-full mb-5"><i data-lucide="gift" class="w-4 h-4"></i> Offre fidélité</span>
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Recevez -10 % sur votre prochaine visite</h2>
-                <p class="text-sable-200 mb-8 max-w-xl mx-auto">Inscrivez-vous à notre newsletter : nos actualités, nos nouveautés en cuisine et cocktails, nos événements… et votre code de réduction envoyé immédiatement par email.</p>
-                <form id="newsletterForm" class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
-                    <input type="text" name="_nl_honey" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
-                    <input type="email" id="newsletter-email" name="email" required placeholder="Votre adresse email"
-                        class="flex-1 px-5 py-3.5 rounded-xl border border-vert-600 bg-white/95 text-terre-800 placeholder-terre-400 focus:outline-none focus:ring-2 focus:ring-terre-400">
-                    <button type="submit"
-                        class="bg-terre-400 hover:bg-terre-600 text-white font-bold px-7 py-3.5 rounded-xl transition-colors whitespace-nowrap shadow-lg">S'inscrire</button>
-                </form>
-                <p id="newsletter-msg" class="text-sable-100 text-sm mt-4 hidden"></p>
-                <p class="text-sable-300/70 text-xs mt-4">En vous inscrivant, vous acceptez de recevoir nos emails. Désinscription en un clic à tout moment.</p>
-            </div>
-        </section>
-
         <footer class="bg-sable-100 text-terre-700 py-16 border-t-4 border-terre-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                    <div class="md:col-span-2">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+                    <div>
                         <h3 class="text-2xl font-serif font-bold text-vert-800 mb-4">Brasserie des Archers</h3>
                         <p class="text-terre-600 max-w-sm">Café, brasserie et afterwork place du Général Leclerc à
                             Voiron. Accueil chaleureux, cuisine maison, grande terrasse, depuis 1905.</p>
                         <a href="https://www.instagram.com/les_archers_voiron/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-5 px-5 py-2.5 rounded-full bg-terre-400 hover:bg-terre-500 text-white font-bold text-sm shadow-lg transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i> Suivez-nous sur Instagram</a>
                     </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-vert-800 mb-4">Nos spécialités</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#specialites" class="hover:text-terre-400 transition-colors">Formules du jour</a>
-                            </li>
-                            <li><a href="#specialites" class="hover:text-terre-400 transition-colors">Cocktails signature</a>
-                            </li>
-                            <li><a href="#specialites" class="hover:text-terre-400 transition-colors">Les tapas</a>
-                            </li>
-                        </ul>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-bold text-vert-800 mb-4">Nos spécialités</h4>
+                            <ul class="space-y-2">
+                                <li><a href="#specialites" class="hover:text-terre-400 transition-colors">Formules du jour</a>
+                                </li>
+                                <li><a href="#specialites" class="hover:text-terre-400 transition-colors">Cocktails signature</a>
+                                </li>
+                                <li><a href="#specialites" class="hover:text-terre-400 transition-colors">Les tapas</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-vert-800 mb-4">Liens utiles</h4>
+                            <ul class="space-y-2">
+                                <li><a href="#" id="open-rgpd" class="hover:text-terre-400 transition-colors">Mentions Légales &
+                                        RGPD</a></li>
+                                <li><a href="https://www.google.com/maps?q=Les+Archers+9+Place+du+G%C3%A9n%C3%A9ral+Leclerc+Voiron" target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="hover:text-terre-400 transition-colors flex items-center gap-1">Avis Google <i
+                                            data-lucide="external-link" class="w-3 h-3"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-vert-800 mb-4">Liens utiles</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#" id="open-rgpd" class="hover:text-terre-400 transition-colors">Mentions Légales &
-                                    RGPD</a></li>
-                            <li><a href="https://www.google.com/maps?q=Les+Archers+9+Place+du+G%C3%A9n%C3%A9ral+Leclerc+Voiron" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="hover:text-terre-400 transition-colors flex items-center gap-1">Avis Google <i
-                                        data-lucide="external-link" class="w-3 h-3"></i></a></li>
-                        </ul>
-                    </div>
-                    <div
-                        class="mt-12 rounded-2xl overflow-hidden shadow-2xl border-4 border-terre-300 h-80 w-full mb-12">
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-terre-300 h-48 md:h-auto min-h-[180px]">
                         <iframe
                             src="https://www.google.com/maps?q=9+Place+du+G%C3%A9n%C3%A9ral+Leclerc,+38500+Voiron&output=embed"
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
